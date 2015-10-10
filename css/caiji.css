@@ -1,0 +1,61 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
+.navbar{  margin:0px; }
+.navbar a{ color:#594080; }
+.bs-docs-masthead,.bs-docs-header {
+	position:relative;
+	color:#cdbfe3;
+	text-align:center;
+	text-shadow:0 1px 0 rgba(0,0,0,.1);
+	background-color:#6f5499;
+	background-image:linear-gradient(tobottom,#563d7c0,#6f5499100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c',endColorstr='#6F5499',GradientType=0);
+	background-repeat:repeat-x;
+	padding:30px 15px;
+	margin:0px 0px 50px 0px;
+}
+
+.bs-docs-masthead {
+	margin:0 auto 30px;
+	padding:60px 0px;
+}
+
+.bs-docs-masthead h1 {
+	line-height:60px;
+	font-weight:bold;
+	color:#fff;
+}
+
+.bs-docs-masthead .lead {
+	font-size:20px;
+	color:#fff;
+	margin:0 auto 30px;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.marketing .col-lg-4 .circle{  width:150px; height:150px; margin:0 auto;
+-webkit-border-radius:100px;
+-moz-border-radius:100px;
+-o-border-radius:100px;
+border-radius:100px;
+background-color:#777777; line-height:120px; padding:30px; text-align:center;
+} 
+.marketing .col-lg-4 i{ font-size:80px; color:white;}
+
+.article img{ max-width:640px}
