@@ -39,7 +39,6 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define('HTTP_REFERER', isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
 define('SITE_URL', DIRECTORY_SEPARATOR);
 define('SKIN_PATH', SITE_URL.'css'.DIRECTORY_SEPARATOR);
-define('ADMIN_JS_PATH',SITE_URL.'js/adminpanel'.DIRECTORY_SEPARATOR);
 define('SYS_STYLE',  'default');
 define('EXT',  '.php');
 
@@ -56,8 +55,6 @@ define('INTALL_UPLOAD_TEMP_PATH',''.FCPATH.DIRECTORY_SEPARATOR.'uploadfile'.DIRE
 
 define('SYS_TIME', time());
 
-define('TOM_APP_KEY','23059279');
-define('TOM_SECRET_KEY','bbc18b0e1a02aa3185dc5d87a0c68299');
 define('SITE_NAME','塔齐管理系统 ');
 define('WEBSITE_BASE_NAME','塔齐管理系统');
 

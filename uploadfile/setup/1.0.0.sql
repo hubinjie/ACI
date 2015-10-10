@@ -96,7 +96,7 @@ LOCK TABLES `t_sys_member_role` WRITE;
 INSERT INTO `t_sys_member_role` (`role_id`, `role_name`, `type_id`, `listorder`, `description`, `parent_id`, `arr_childid`, `auto_choose`, `arr_userid`)
 VALUES
 	(1,'超级管理员',0,0,'超级管理员',0,NULL,1,NULL),
-	(2,'低级管理员',0,0,'低级管理员',0,NULL,1,NULL);
+	(2,'普通管理员',0,0,'普通管理员',0,NULL,1,NULL);
 
 /*!40000 ALTER TABLE `t_sys_member_role` ENABLE KEYS */;
 UNLOCK TABLES;

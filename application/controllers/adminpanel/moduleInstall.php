@@ -285,7 +285,9 @@ class ModuleInstall extends Admin_Controller {
 			}
 		}
 		$php_tags  = "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');\n";
-		$php_tags .= "\$config['aci_module'] = ".var_export($this->aci_config, TRUE).";";
+		$php_tags .= "\$config['base_url'] = ".var_export($_arr['site_url'], TRUE).";\n";
+		$php_tags .= "\$config['aci_status'] = ".var_export($this->aci_status, TRUE).";\n";
+		$php_tags .= "\$config['aci_module'] = ".var_export($this->aci_config, TRUE).";\n";
 		$php_tags .= "\n/* End of file aci.php */\n";
 		$php_tags .= "/* Location: ./application/config/aci.php */\n";
 		

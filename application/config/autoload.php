@@ -137,4 +137,4 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 
-$autoload['model'] = array('Member_model','Module_menu_model','Member_role_priv_model');
+$autoload['model'] = array('Member_model','Module_menu_model','Member_role_priv_model','Member_role_model');

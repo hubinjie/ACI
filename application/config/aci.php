@@ -1,4 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$config['base_url'] = 'http://localhost/';
+$config['aci_status'] = array (
+  'systemVersion' => '1.0.0',
+  'installED' => false,
+);
 $config['aci_module'] = array (
   'welcome' => 
   array (
@@ -580,5 +585,6 @@ $config['aci_module'] = array (
     ),
   ),
 );
+
 /* End of file aci.php */
 /* Location: ./application/config/aci.php */

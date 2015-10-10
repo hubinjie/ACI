@@ -3,6 +3,7 @@ class MY_Controller extends CI_Controller
 {
 	private  $is_load_captcha;
 	public $aci_config;
+	public $aci_status;
 	public $all_module_menu;
 	protected $page_data = array(
 		'module_name' => '',
@@ -15,13 +16,14 @@ class MY_Controller extends CI_Controller
 		parent::__construct();
 		$this->load->driver('cache',array('adapter'=>'file'));
 
-		$this->page_data['folder_name']=substr($this->router->directory, 0, -1) ;
-		$this->page_data['controller_name']= $this->router->class;
-		$this->page_data['method_name']= $this->router->method;
+		$this->page_data['folder_name']=strtolower(substr($this->router->directory, 0, -1)) ;
+		$this->page_data['controller_name']= strtolower($this->router->class);
+		$this->page_data['method_name']= strtolower($this->router->method);
 		$this->page_data['controller_info']= $this->config->item($this->page_data['controller_name'],'module');
 
 		$this->config->load('aci');
 		$this->aci_config = $this->config->item('aci_module');
+		$this->aci_status = $this->config->item('aci_status');
 
 		$_pageseo = $this->config->item($this->router->class,'seo');
 		$_default_pageseo = $this->config->item('default','seo');
@@ -36,10 +38,14 @@ class MY_Controller extends CI_Controller
 		$this->load->vars($this->page_data);
 		$this->_check_module();
 
+		//如果未安装，执行安装
+		if(!$this->aci_status['installED']&&$this->page_data['folder_name']!="setup") redirect(base_url('setup/step'));
 	}
 
+	//检查模块
 	function _check_module()
 	{
+		if(!$this->aci_status['installED']&&$this->page_data['folder_name']=="setup")  return true;
 		$_aci_config = NULL;
 
 		foreach($this->aci_config as $k=>$v)
@@ -62,6 +68,7 @@ class MY_Controller extends CI_Controller
 			}
 			if($_aci_config!=NULL)break;
 		}
+
 
 		if($_aci_config==NULL)exit('Module does not exists');
 		if(!isset($_aci_config['works']))$this->showmessage('模块不存在，或未正确安装',base_url($this->page_data['folder_name'].'/moduleManage/index'));
@@ -138,6 +145,45 @@ class Front_Controller extends MY_Controller{
 
 		$this->load->view($view_file,$page_data);
 	}
+
+	//重新加载所有缓存至文件
+	final public function reload_all_cache(){
+
+		
+		$menus = array();
+
+		$datas = $this->Module_menu_model->select('','*',10000,'list_order ASC,menu_id asc');
+		$array = array();
+		foreach ($datas as $r) {
+			$r['url'] =base_url($r['folder'].'/'.$r['controller'].'/'.$r['method']) ;
+			$menus[$r['menu_id']] = $r;
+		}
+		setcache('cache_module_menu_all', $menus);
+
+
+		$priv_arr = $this->Member_role_priv_model->select("");
+		$new_priv_arr = array();
+		if($priv_arr) {
+			foreach($priv_arr as $k=>$v){
+				$new_priv_arr[$v['role_id']][$v['menu_id']]=$v;
+			}
+
+			setcache('cache_member_role_priv', $new_priv_arr);
+
+			$infos = $this->Member_role_model->select('',  '*', '', 'role_id ASC');
+			
+			$groups = array();
+
+			foreach ($infos as $info){
+				$role[$info['role_id']] = $info['role_name'];
+				$groups[$info['role_id']]=$info;
+			}
+
+			setcache('cache_member_group', $groups);
+		}
+
+	}
+
 }
 
 
@@ -345,6 +391,7 @@ class Member_Controller extends Front_Controller{
 			}
 		}
 	}
+
 
 
 }
