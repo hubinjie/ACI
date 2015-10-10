@@ -11,8 +11,8 @@
               <h3 class="masthead-brand">ACI(AutoCodeigniter.com)</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">安装</a></li>
-                  <li><a href="#">联系</a></li>
+                  <li class="active"><a href="<?php echo site_url()?>">首页</a></li>
+                  <li><a href="http://www.autoCodeigniter.com">联系</a></li>
                 </ul>
               </nav>
             </div>
