@@ -1,0 +1,32 @@
+安装分成以下几步
+
+1. 找到 application/config.php 中
+ 	将 
+   	$config['base_url'] = '';
+   	换成你的域名或者IP如 $config['base_url'] = 'http://www.xxx.com'; $config['base_url'] = 'http://locahost'; $config['base_url'] = 'http://locahost/aci/';
+
+ 2. 找到 application/database.php中
+ 	将
+ 	'hostname' => 'localhost',
+	'username' => '',
+	'password' => '',
+	'database' => '',
+	换成你真实数据库信息，分别为主机名称，数据库用户名，数据库密码，数据库名称
+
+ 3. 找到 application/constant.php中
+ 	将
+ 	define('SITE_URL', '/');
+ 	换成和你相对于站点的根目录，如果是当前是根目录不需要修改，如果是子类目，就换成你的子目录如 define('SITE_URL', '/aci/');
+
+  4. 将“安装SQL.sql” 安装SQL 导入到你的数据库中
+
+  5. 找到 application/aci.php中
+ 	将
+ 	$config['aci_status'] = array (
+	  'systemVersion' => '1.0.0',
+	  'installED' => false,
+	);
+
+	改成 'installED'=>true;
+  
+ 6. 安装完成，请删除“安装SQL.sql” 文件，如若有任何问题，请联系我QQ：5516448	

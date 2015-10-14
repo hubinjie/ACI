@@ -34,7 +34,7 @@ class MY_Controller extends CI_Controller
 		unset($_pageseo);
 		unset($_default_pageseo);
 		//如果未安装，执行安装
-		if(!$this->aci_status['installED']&&$this->page_data['folder_name']!="setup") redirect(base_url('setup/step'));
+		if(!$this->aci_status['installED']&&$this->page_data['folder_name']!="setup") die("未安装");
 
 		$this->all_module_menu = getcache("cache_module_menu_all");
 

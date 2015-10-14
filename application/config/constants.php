@@ -37,21 +37,21 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('HTTP_REFERER', isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
-define('SITE_URL', DIRECTORY_SEPARATOR);
-define('SKIN_PATH', SITE_URL.'css'.DIRECTORY_SEPARATOR);
+define('SITE_URL', '/');
+define('SKIN_PATH', SITE_URL.'css/');
 define('SYS_STYLE',  'default');
 define('EXT',  '.php');
 
 
 
-define('BASE_CSS_PATH',  SITE_URL.'css'.DIRECTORY_SEPARATOR);
-define('BASE_JS_PATH', SITE_URL.'scripts'.DIRECTORY_SEPARATOR);
-define('IMG_PATH', SITE_URL.'images'.DIRECTORY_SEPARATOR);
-define('UPLOAD_URL', '/uploadfile'.DIRECTORY_SEPARATOR);
-define('UPLOAD_TEMP_URL', '/uploadfile'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR);
-define('UPLOAD_PATH',FCPATH.DIRECTORY_SEPARATOR.'uploadfile'.DIRECTORY_SEPARATOR);
-define('UPLOAD_TEMP_PATH',''.FCPATH.DIRECTORY_SEPARATOR.'uploadfile'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR);
-define('INTALL_UPLOAD_TEMP_PATH',''.FCPATH.DIRECTORY_SEPARATOR.'uploadfile'.DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR.'install');
+define('BASE_CSS_PATH',  SITE_URL.'css/');
+define('BASE_JS_PATH', SITE_URL.'scripts/');
+define('IMG_PATH', SITE_URL.'images/');
+define('UPLOAD_URL', '/uploadfile/');
+define('UPLOAD_TEMP_URL', '/uploadfile/temp/');
+define('UPLOAD_PATH',FCPATH.'/uploadfile/');
+define('UPLOAD_TEMP_PATH',''.FCPATH.'/uploadfile/temp/');
+define('INTALL_UPLOAD_TEMP_PATH',''.FCPATH.'/uploadfile/temp/install');
 
 define('SYS_TIME', time());
 
@@ -61,9 +61,9 @@ define('WEBSITE_BASE_NAME','塔齐管理系统');
 
 define('SUPERADMIN_GROUP_ID',  1);
 
-define('ADMIN_URL_PATH',  SITE_URL.'/adminpanel'.DIRECTORY_SEPARATOR);
-define('ADMIN_CSS_PATH',  SITE_URL.'css/adminpanel'.DIRECTORY_SEPARATOR);
-define('ADMIN_IMG_PATH', SITE_URL.'images/adminpanel'.DIRECTORY_SEPARATOR);
+define('ADMIN_URL_PATH',  SITE_URL.'/adminpanel/');
+define('ADMIN_CSS_PATH',  SITE_URL.'css/adminpanel/');
+define('ADMIN_IMG_PATH', SITE_URL.'images/adminpanel/');
 
 
 

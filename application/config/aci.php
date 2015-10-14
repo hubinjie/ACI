@@ -1,6 +1,4 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-$config['base_url'] = '';
-$config['index_page'] = '';
 $config['aci_status'] = array (
   'systemVersion' => '1.0.0',
   'installED' => false,
