@@ -81,6 +81,8 @@ class Step extends Front_Controller {
 	}
 
 	function done(){
+		
+		dir_create(APPPATH.'cache');
 		$this->reload_all_cache();
 
 		$this->aci_status['installED'] = true;

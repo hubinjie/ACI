@@ -150,9 +150,7 @@ class Front_Controller extends MY_Controller{
 	//重新加载所有缓存至文件
 	final public function reload_all_cache(){
 
-		
 		$menus = array();
-
 		$datas = $this->Module_menu_model->select('','*',10000,'list_order ASC,menu_id asc');
 		$array = array();
 		foreach ($datas as $r) {
