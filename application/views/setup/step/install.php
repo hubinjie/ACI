@@ -24,7 +24,7 @@
                   <input type="hidden" name="flag" id="flag" value="1">
                   <div class="form-group">
                     <label >安装首页网址</label>
-                    <input type="url" id="site_url"  name="site_url" value="<?php echo site_url()?>" class="form-control"  placeholder="请输入首页网址" autofocus required>
+                    <input type="url" id="site_url"  name="site_url" value="http://localhost/" class="form-control"  placeholder="请输入首页网址" autofocus required>
                   </div>
                   <div class="form-group">
                     <label >MYSQL 主机地址</label>
@@ -97,7 +97,7 @@
             $("#dosubmit").attr("disabled","disabled");
             $.ajax({
               type: "POST",
-              url: "<?php echo current_url()?>",
+              url: "install",
               data:  $("#testForm").serialize(),
               success:function(response){
                 var dataObj=jQuery.parseJSON(response);
@@ -108,14 +108,14 @@
                     //安装SQL
                     $.ajax({
                       type: "POST",
-                      url: "<?php echo current_url()?>",
+                      url: "install",
                       data:  $("#testForm").serialize(),
                       success:function(response){
                         var dataObj=jQuery.parseJSON(response);
                         if(dataObj.status)
                         {
                           alert("安装成功");
-                          window.location.href='<?php echo base_url('adminpanel')?>';
+                          window.location.href="done";
                          
                         }else
                         {

@@ -22,7 +22,7 @@
             <h1 class="cover-heading">欢迎使用ACI.</h1>
             <p class="lead">好吧，你现在已经拥有了吸心大法三层功力！ 扩展自Codeiginter  version 1.0 beta.</p>
             <p class="lead">
-              <a href="<?php echo base_url('setup/step/install')?>" class="btn btn-lg btn-default">现在开始安装</a>
+              <a href="step/install" class="btn btn-lg btn-default">现在开始安装</a>
             </p>
           </div>
 

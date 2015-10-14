@@ -80,6 +80,24 @@ class Step extends Front_Controller {
 	    return($ret);
 	}
 
+	function done(){
+		$this->reload_all_cache();
+
+		$this->aci_status['installED'] = true;
+		//更新config
+		$php_tags  = "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');\n";
+		$php_tags .= "\$config['base_url'] = ".var_export(base_url(), TRUE).";\n";
+		$php_tags .= "\$config['index_page'] = '';\n";
+		$php_tags .= "\$config['aci_status'] = ".var_export($this->aci_status, TRUE).";\n";
+		$php_tags .= "\$config['aci_module'] = ".var_export($this->aci_config, TRUE).";\n";
+		$php_tags .= "\n/* End of file aci.php */\n";
+		$php_tags .= "/* Location: ./application/config/aci.php */\n";
+
+		write_file(APPPATH.'config/aci.php', $php_tags);
+
+		redirect(site_url());
+	}
+
 	function install(){
 
 		$this->check_chomd(0);
@@ -194,20 +212,15 @@ class Step extends Front_Controller {
 				    if( $errors)
 				    	exit(json_encode(array('status'=>false,'tips'=>$errors)));
 				    else{
-				    	$this->aci_status['installED'] = true;
-				    	//更新config
-						$php_tags  = "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');\n";
-						$php_tags .= "\$config['base_url'] = ".var_export(site_url(), TRUE).";\n";
-						$php_tags .= "\$config['aci_status'] = ".var_export($this->aci_status, TRUE).";\n";
-						$php_tags .= "\$config['aci_module'] = ".var_export($this->aci_config, TRUE).";\n";
-						$php_tags .= "\n/* End of file aci.php */\n";
-						$php_tags .= "/* Location: ./application/config/aci.php */\n";
+				    	
 
-						write_file(APPPATH.'config/aci.php', $php_tags);
+						$autoload_php = UPLOAD_PATH."/setup/autoload.php";
+						$string = read_file($autoload_php);
 
+						write_file(APPPATH.'config/autoload.php', $string);
+				
 						//删除安装文件
 
-						$this->reload_all_cache();
 						exit(json_encode(array('status'=>true,'tips'=>"安装完成")));
 				    }
 

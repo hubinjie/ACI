@@ -15,6 +15,7 @@ class MY_Controller extends CI_Controller
 	function __construct(){
 		parent::__construct();
 		$this->load->driver('cache',array('adapter'=>'file'));
+		$this->load->helper(array('global','url','string','text','language','auto_codeIgniter_helper','member'));
 
 		$this->page_data['folder_name']=strtolower(substr($this->router->directory, 0, -1)) ;
 		$this->page_data['controller_name']= strtolower($this->router->class);
@@ -32,14 +33,14 @@ class MY_Controller extends CI_Controller
 		$this->page_data['decriptions'] = isset($_pageseo['decriptions'])?$_pageseo['decriptions'] : $_default_pageseo['decriptions'];
 		unset($_pageseo);
 		unset($_default_pageseo);
+		//如果未安装，执行安装
+		if(!$this->aci_status['installED']&&$this->page_data['folder_name']!="setup") redirect(base_url('setup/step'));
 
 		$this->all_module_menu = getcache("cache_module_menu_all");
 
 		$this->load->vars($this->page_data);
 		$this->_check_module();
 
-		//如果未安装，执行安装
-		if(!$this->aci_status['installED']&&$this->page_data['folder_name']!="setup") redirect(base_url('setup/step'));
 	}
 
 	//检查模块

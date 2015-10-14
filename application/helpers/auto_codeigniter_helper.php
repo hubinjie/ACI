@@ -68,6 +68,19 @@
 		}
 		
 	}
+
+	if(!function_exists('site_url_ext'))
+	{
+		function site_url_ext($str){
+			
+
+			if(base_url()==""){
+				return base_url($str);
+			}
+			return site_url($str);
+		}
+		
+	}
 	
 	/** 
 	 * 是否为时间格式
