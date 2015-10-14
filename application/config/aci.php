@@ -2,7 +2,7 @@
 $config['base_url'] = 'http://localhost/';
 $config['aci_status'] = array (
   'systemVersion' => '1.0.0',
-  'installED' => true,
+  'installED' => false,
 );
 $config['aci_module'] = array (
   'welcome' => 
