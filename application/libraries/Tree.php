@@ -2,7 +2,7 @@
 /**
 * 通用的树型类，可以生成任何树型结构
 */
-class tree {
+class Tree {
 	/**
 	* 生成树型结构所需要的2维数组
 	* @var array
@@ -124,7 +124,7 @@ class tree {
 
 		$depth++;
 		$child = $this->get_child($myid);
-		
+
 		if(is_array($child)){
 		    $total = count($child);
 
@@ -152,7 +152,7 @@ class tree {
 		}
 		return $this->ret;
 	}
-	
+
     /**
 	* 同上一方法类似,但允许多选
 	*/
@@ -170,7 +170,7 @@ class tree {
 					$k = $adds ? $this->icon[0] : '';
 				}
 				$spacer = $adds ? $adds.$j : '';
-				
+
 				$selected = $this->have($sid,$id) ? 'selected' : '';
 				@extract($a);
 				eval("\$nstr = \"$str\";");
@@ -202,7 +202,7 @@ class tree {
 					$k = $adds ? $this->icon[0] : '';
 				}
 				$spacer = $adds ? $adds.$j : '';
-				
+
 				$selected = $this->have($sid,$id) ? 'selected' : '';
 				@extract($a);
 				if (empty($html_disabled)) {
@@ -217,7 +217,7 @@ class tree {
 		}
 		return $this->ret;
 	}
-	
+
 	/**
 	 * 同上一类方法，jquery treeview 风格，可伸缩样式（需要treeview插件支持）
 	 * @param $myid 表示获得这个ID下的所有子级
@@ -243,7 +243,7 @@ class tree {
 
         	@extract($a);
 			if($showlevel > 0 && $showlevel == $currentlevel && $this->get_child($id)) $folder = 'hasChildren'; //如设置显示层级模式@2011.07.01
-        	$floder_status = isset($folder) ? ' class="'.$folder.'"' : '';		
+        	$floder_status = isset($folder) ? ' class="'.$folder.'"' : '';
             $this->str .= $recursion ? '<ul><li'.$floder_status.' id=\''.$id.'\'>' : '<li'.$floder_status.' id=\''.$id.'\'>';
             $recursion = FALSE;
             if($this->get_child($id)){
@@ -263,7 +263,7 @@ class tree {
         if(!$recursion)  $this->str .='</ul>';
         return $this->str;
     }
-	
+
 	/**
 	 * 获取子栏目json
 	 * Enter description here ...
@@ -272,14 +272,14 @@ class tree {
 	public function creat_sub_json($myid, $str='') {
 		$sub_cats = $this->get_child($myid);
 		$n = 0;
-		if(is_array($sub_cats)) foreach($sub_cats as $c) {			
+		if(is_array($sub_cats)) foreach($sub_cats as $c) {
 			$data[$n]['id'] = iconv(CHARSET,'utf-8',$c['catid']);
 			if($this->get_child($c['catid'])) {
 				$data[$n]['liclass'] = 'hasChildren';
 				$data[$n]['children'] = array(array('text'=>'&nbsp;','classes'=>'placeholder'));
 				$data[$n]['classes'] = 'folder';
 				$data[$n]['text'] = iconv(CHARSET,'utf-8',$c['catname']);
-			} else {				
+			} else {
 				if($str) {
 					@extract(array_iconv($c,CHARSET,'utf-8'));
 					eval("\$data[$n]['text'] = \"$str\";");
@@ -289,7 +289,7 @@ class tree {
 			}
 			$n++;
 		}
-		return json_encode($data);		
+		return json_encode($data);
 	}
 	private function have($list,$item){
 		return(strpos(',,'.$list.',',','.$item.','));
