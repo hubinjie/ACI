@@ -38,7 +38,7 @@ requirejs(['jquery','aci','cookie','bootstrap','bootstrapValidator','message'],
 				
 				e.preventDefault();
 				$("#dosubmit").attr("disabled","disabled");
-				$.scojs_message('正在保存中，请稍候...', $.scojs_message.TYPE_WAIT);
+				$.scojs_message('正在登录，请稍候...', $.scojs_message.TYPE_WAIT);
 				
 				if ($("#rmbUser").is(":checked") ) { 
 				    var userName = $("#username").val(); 
