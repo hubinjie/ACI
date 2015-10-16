@@ -29,6 +29,4 @@
 
 	改成 'installED'=>true;
 
- 6. 将application/cache_RENAME 改为 application/cache
-  
- 7. 安装完成，请删除“安装SQL.sql” 文件，如若有任何问题，请联系我QQ：5516448	
+6. 安装完成，请删除“安装SQL.sql” 文件，如若有任何问题，请联系我QQ：5516448	
