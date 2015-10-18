@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Version 4096
+# Version 4499
 #
 # http://www.sequelpro.com/
-# http://code.google.com/p/sequel-pro/
+# https://github.com/sequelpro/sequelpro
 #
 # Host: localhost (MySQL 5.5.33)
-# Database: my_aci
-# Generation Time: 2015-10-09 12:38:54 +0000
+# Database: ACI
+# Generation Time: 2015-10-18 02:25:59 +0000
 # ************************************************************
 
 
@@ -22,17 +22,6 @@
 
 # Dump of table t_sys_member
 # ------------------------------------------------------------
-DROP TABLE IF EXISTS `t_sys_sessions`;
-CREATE TABLE `t_sys_sessions` (
-  `id` varchar(40) NOT NULL DEFAULT '0',
-  `ip_address` varchar(16) NOT NULL DEFAULT '0',
-  `user_agent` varchar(120) NOT NULL,
-  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
-  `data` text NOT NULL,
-  `timestamp` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `last_activity_idx` (`last_activity`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `t_sys_member`;
 
@@ -76,7 +65,7 @@ LOCK TABLES `t_sys_member` WRITE;
 
 INSERT INTO `t_sys_member` (`user_id`, `username`, `password`, `email`, `group_id`, `is_choose_type`, `open_id`, `avatar`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `encrypt`, `is_lock`, `fullname`, `qq`, `weixin`, `is_seller`, `created`, `modified`, `is_email_validate`, `is_mobile_validate`, `mobile`, `sex`, `birthday`, `province_code`, `city_code`, `district_code`)
 VALUES
-	(1,'test','fb469d7ef430b0baf0cab6c436e70375','hubinjie@live.cn',1,0,NULL,'aci.jpg',NULL,0,'::1',1444378454,NULL,0,'胡子锅','5516448','dawang',1,'2015-03-05 18:12:00','2015-03-10 22:31:19',1,1,'13046697138','男','1985-10-21','310000','310100','310118'),
+	(1,'test','fb469d7ef430b0baf0cab6c436e70375','hubinjie@live.cn',1,0,NULL,'aci.jpg',NULL,0,'127.0.0.1',1445133268,NULL,0,'胡子锅','5516448','dawang',1,'2015-03-05 18:12:00','2015-03-10 22:31:19',1,1,'13046697138','男','1985-10-21','310000','310100','310118'),
 	(2,'xiaoer','b5d3c7db5ec308deb8e79621c7f69055','lyhuc@163.com',2,0,NULL,'nopic.gif','::1',2015,'::1',1444385734,'wOxmG',0,'小二',NULL,NULL,0,NULL,NULL,0,0,'13046697138','0',NULL,NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `t_sys_member` ENABLE KEYS */;
@@ -182,11 +171,11 @@ LOCK TABLES `t_sys_module_menu` WRITE;
 
 INSERT INTO `t_sys_module_menu` (`menu_id`, `menu_name`, `parent_id`, `list_order`, `is_display`, `controller`, `folder`, `method`, `flag_id`, `is_side_menu`, `is_system`, `is_works`, `user_id`, `css_icon`, `arr_parentid`, `arr_childid`, `is_parent`, `show_where`)
 VALUES
-	(1,'首页',0,1,1,'manage','adminpanel','go_1','0',1,0,1,1,'home','0','1,5,6,7,8',1,1),
+	(1,'首页',0,1,1,'manage','adminpanel','go_1','0',1,0,1,1,'home','0','1,5,40,41,6,7,8',1,1),
 	(2,'用户管理',0,2,1,'manage','adminpanel','go_2','0',1,0,1,1,'street-view','0','2,9,31,32,33,34,35,36,37,10,26,27,28,29,30',1,1),
 	(3,'栏目管理',0,3,1,'manage','adminpanel','go_3','0',1,0,1,1,'list-ol','0','3,11,16,17,18,19,20,12,13,14,21,22,23,24,25,39',1,1),
 	(4,'扩展模块',0,4,1,'manage','adminpanel','go_4','0',1,0,1,1,'dropbox','0','4,15,38',1,1),
-	(5,'我的',1,5,1,'manage','adminpanel','go_5','0',1,0,1,1,'','0,1','5,6,7,8',1,1),
+	(5,'我的',1,5,1,'manage','adminpanel','go_5','0',1,0,1,1,'','0,1','5,40,41,6,7,8',1,1),
 	(6,'控制面板',5,6,1,'manage','adminpanel','index','0',1,0,1,1,'','0,1,5','6',0,1),
 	(7,'修改密码',5,7,1,'profile','adminpanel','change_pwd','0',1,0,1,1,'','0,1,5','7',0,1),
 	(8,'注销',5,8,1,'manage','adminpanel','logout','0',1,0,1,1,'','0,1,5','8',0,1),
@@ -220,10 +209,29 @@ VALUES
 	(35,'删除',31,35,1,'user','adminpanel','delete','0',1,0,1,1,'','0,2,9,31','35',0,1),
 	(36,'锁定/解锁',31,36,1,'user','adminpanel','lock','0',1,0,1,1,'','0,2,9,31','36',0,1),
 	(37,'上传头像',31,37,1,'user','adminpanel','upload','0',1,0,1,1,'','0,2,9,31','37',0,1),
-	(39,'上传安装包',14,39,1,'moduleInstall','adminpanel','index','0',1,0,1,1,'','0,3,12,14','39',0,1);
+	(39,'上传安装包',14,39,1,'moduleInstall','adminpanel','index','0',1,0,1,1,'','0,3,12,14','39',0,1),
+	(41,'全局缓存',5,7,1,'manage','adminpanel','cache','0',1,0,1,1,'','0,1,5','41',0,1);
 
 /*!40000 ALTER TABLE `t_sys_module_menu` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table t_sys_sessions
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `t_sys_sessions`;
+
+CREATE TABLE `t_sys_sessions` (
+  `id` varchar(40) NOT NULL DEFAULT '0',
+  `ip_address` varchar(16) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
+  `data` text NOT NULL,
+  `timestamp` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `last_activity_idx` (`last_activity`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 # Dump of table t_sys_times

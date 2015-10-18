@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 $config['aci_status'] = array (
   'systemVersion' => '1.0.0',
-  'installED' => false,
+  'installED' => false,#初始安装，请在这里修改
 );
 $config['aci_module'] = array (
   'welcome' => 
@@ -88,6 +88,13 @@ $config['aci_module'] = array (
         'controller' => 'manage',
         'method' => 'go',
         'caption' => '管理中心-URL转向',
+      ),
+      6 => 
+      array (
+        'folder' => 'adminpanel',
+        'controller' => 'manage',
+        'method' => 'cache',
+        'caption' => '管理中心-全局缓存',
       ),
     ),
   ),

@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => 'localhost',#初始安装，请在这里修改
+	'username' => 'root',#初始安装，请在这里修改
+	'password' => 'root',#初始安装，请在这里修改
+	'database' => 'aci',#初始安装，请在这里修改
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

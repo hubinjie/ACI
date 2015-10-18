@@ -37,7 +37,6 @@ class MY_Controller extends CI_Controller
 		if(!$this->aci_status['installED']&&$this->page_data['folder_name']!="setup") die("未安装");
 
 		$this->all_module_menu = getcache("cache_module_menu_all");
-
 		$this->load->vars($this->page_data);
 		$this->_check_module();
 
@@ -238,8 +237,6 @@ class Member_Controller extends Front_Controller{
 					break;
 				}
 			}
-
-
 			if(!$found) $this->showmessage('您没有权限操作该项','blank');
 		}else{
 
@@ -316,10 +313,7 @@ class Member_Controller extends Front_Controller{
 		}
 
 		$page_data['menu_data']= $menu_data;
-
 		$page_data['current_pos']=$this->current_pos($menu_id);
-
-
 		$page_data['sub_page']=$this->load->view(reduce_double_slashes($view_file),$sub_page_data,true);
 
 		$this->load->view('member/header',$page_data);
@@ -363,7 +357,6 @@ class Member_Controller extends Front_Controller{
 			if(preg_match('/^public_/',$v['method'])) {
 				$array[] = $v;
 			} else {
-				//if(preg_match('/^ajax_([a-z]+)_/',$action,$_match)) $action = $_match[1];
 				$r = $this->Member_role_priv_model->get_one(array('folder'=> $v['folder'],'controller'=> $v['controller'] ,'method'=> $v['method'],'role_id'=>$this->group_id));
 				if($r) $array[] = $v;
 			}
@@ -384,7 +377,6 @@ class Member_Controller extends Front_Controller{
 
 				else
 					$str = $str . '<li> ' . $this->all_module_menu[$id]['menu_name'] . ' </li>';
-
 
 				return $str;
 			}

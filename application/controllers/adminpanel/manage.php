@@ -7,6 +7,11 @@ class Manage extends Admin_Controller {
 		$this->load->model(array('Times_model'));
 	}
 
+	function cache(){
+		$this->reload_all_cache();
+		$this->showmessage('全局缓存成功');
+	}
+
 	function go($id=0){
 		if($id==0) exit() ;
 		if(isset($this->current_role_priv_arr[$id])){
