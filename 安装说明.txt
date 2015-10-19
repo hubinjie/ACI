@@ -3,7 +3,8 @@
 1. 找到 application/config.php 中
  	将 
    	$config['base_url'] = '';
-   	换成你的域名或者IP如 $config['base_url'] = 'http://www.xxx.com'; $config['base_url'] = 'http://locahost'; $config['base_url'] = 'http://locahost/aci/';
+   	换成你的域名或者IP如 $config['base_url'] = 'http://www.xxx.com'; $config['base_url'] = 'http://locahost'; 
+   	* 暂不支持 子目录
 
  2. 找到 application/database.php中
  	将
@@ -31,5 +32,5 @@
 
 6. 安装完成，请删除“安装SQL.sql” 文件，
 
-7. 进入后台，请先运行首页》我的》全局缓存 
+7. 进入后台，运行 http://localhost/adminpanel/manage/cache ，会自动更新一下栏目缓存，请注意
    如若有任何问题，请联系我QQ：5516448	
