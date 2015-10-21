@@ -1,6 +1,5 @@
-var SITE_URL = "/";
 require.config({
-	baseUrl: '/scripts',
+	baseUrl: SITE_URL+'scripts',
     paths: {
         "jquery": "lib/jquery", 
         "jquery-ui": "lib/jquery-ui-1.10.0.custom.min", 

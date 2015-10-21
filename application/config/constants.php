@@ -37,7 +37,7 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 define('HTTP_REFERER', isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
-define('SITE_URL', '/');#初始安装，请在这里修改
+define('SITE_URL', '/');#初始安装，请在这里修改,为实际目录
 define('SKIN_PATH', SITE_URL.'css/');
 define('SYS_STYLE',  'default');
 define('EXT',  '.php');
@@ -47,8 +47,8 @@ define('EXT',  '.php');
 define('BASE_CSS_PATH',  SITE_URL.'css/');
 define('BASE_JS_PATH', SITE_URL.'scripts/');
 define('IMG_PATH', SITE_URL.'images/');
-define('UPLOAD_URL', '/uploadfile/');
-define('UPLOAD_TEMP_URL', '/uploadfile/temp/');
+define('UPLOAD_URL', SITE_URL.'uploadfile/');
+define('UPLOAD_TEMP_URL', SITE_URL.'uploadfile/temp/');
 define('UPLOAD_PATH',FCPATH.'/uploadfile/');
 define('UPLOAD_TEMP_PATH',''.FCPATH.'/uploadfile/temp/');
 define('INTALL_UPLOAD_TEMP_PATH',''.FCPATH.'/uploadfile/temp/install');
@@ -61,9 +61,9 @@ define('WEBSITE_BASE_NAME','塔齐管理系统');
 
 define('SUPERADMIN_GROUP_ID',  1);
 
-define('ADMIN_URL_PATH',  SITE_URL.'/adminpanel/');
-define('ADMIN_CSS_PATH',  SITE_URL.'/css/adminpanel/');
-define('ADMIN_IMG_PATH', SITE_URL.'/images/adminpanel/');
+define('ADMIN_URL_PATH',  SITE_URL.'adminpanel/');
+define('ADMIN_CSS_PATH',  SITE_URL.'css/adminpanel/');
+define('ADMIN_IMG_PATH', SITE_URL.'images/adminpanel/');
 
 
 

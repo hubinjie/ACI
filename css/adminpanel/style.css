@@ -19,7 +19,7 @@ body {
 }
 
 .tsLogo {
-  background-image: url('/images/logo.gif');
+  background-image: url('../../images/logo.gif');
   width: 300px;
   height: 55px;
 }
@@ -454,7 +454,7 @@ a.square:hover {
 
 .navbar-default .navbar-brand {
   color: white;
-  background-image: url('/images/sys_logo.gif');
+  background-image: url('../../images/sys_logo.gif');
   background-repeat: none;
   padding-left: 70px;
 }

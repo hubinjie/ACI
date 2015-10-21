@@ -90,4 +90,4 @@
     var edit =<?php echo $is_edit?"true":"false"?>;
     var folder_name="<?php echo $folder_name?>";
     var controller_name ="<?php echo $controller_name?>";
-    require(['/scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/edit.js']); </script>
+    require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/edit.js']); </script>

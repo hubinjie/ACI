@@ -24,7 +24,7 @@ function previewimage()
     <div class="media">
      <?php if($is_image) { ?>
       <a class="media-left" href="#" target="_blank">
-        <img id="previewpic" src="<?php echo base_url('/images/nopic.gif')?>" width="100">
+        <img id="previewpic" src="<?php echo site_url('/images/nopic.gif')?>" width="100">
       </a>
      <?php } ?>
       <div class="media-body">
@@ -49,7 +49,7 @@ if($(window.parent.document).find("#<?php echo $control_id;?>").val())
 }
 else
 {
-	$("#previewpic").attr("src","<?php echo base_url('/images/nopic.gif')?>"); 
+	$("#previewpic").attr("src","<?php echo site_url('/images/nopic.gif')?>"); 
 }
 //-->
 </script>

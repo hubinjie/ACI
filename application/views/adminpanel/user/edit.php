@@ -107,5 +107,5 @@
 		$("#thumb_SRC").attr("src","<?php echo $this->method_config['upload']['thumb']['upload_url']?>"+v);
 		$("#dialog" ).dialog("close");
 	}
-	require(['/scripts/<?php echo $folder_name?>/user/edit.js']);
+	require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/user/edit.js']);
 </script>

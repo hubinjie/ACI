@@ -87,4 +87,4 @@
 </div>
 
 <script language="javascript"
-        type="text/javascript">var folder_name = "<?php echo $folder_name?>";require(['/scripts/<?php echo $folder_name?>/user/index.js']); </script>
+        type="text/javascript">var folder_name = "<?php echo $folder_name?>";require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/user/index.js']); </script>

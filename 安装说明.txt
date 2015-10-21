@@ -4,7 +4,7 @@
  	将 
    	$config['base_url'] = '';
    	换成你的域名或者IP如 $config['base_url'] = 'http://www.xxx.com'; $config['base_url'] = 'http://locahost'; 
-   	* 暂不支持 子目录
+   	$config['base_url'] = 'http://locahost/aci';  
 
  2. 找到 application/database.php中
  	将
@@ -17,7 +17,7 @@
  3. 找到 application/constant.php中
  	将
  	define('SITE_URL', '/');
- 	换成和你相对于站点的根目录，如果是当前是根目录不需要修改，如果是子类目，就换成你的子目录如 define('SITE_URL', '/aci/');
+ 	*换成和你相对于站点的根目录，如果是当前是根目录不需要修改，如果是子类目，就换成你的子目录如 define('SITE_URL', '/aci/');
 
   4. 将“安装SQL.sql” 安装SQL 导入到你的数据库中
 
@@ -32,5 +32,8 @@
 
 6. 安装完成，请删除“安装SQL.sql” 文件，
 
-7. 进入后台，运行 http://localhost/adminpanel/manage/cache ，会自动更新一下栏目缓存，请注意
+7. *如果为子目录请将安装要目录下面的.htacess中的 行4 改成你实际的路径如
+   RewriteBase /aci/
+
+8. 进入后台，运行 http://localhost/(*你的子目录，根目录略过)/adminpanel/manage/cache ，会自动更新一下栏目缓存，请注意
    如若有任何问题，请联系我QQ：5516448	

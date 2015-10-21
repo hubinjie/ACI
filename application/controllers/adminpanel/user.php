@@ -9,7 +9,7 @@ class User extends Admin_Controller {
 		$this->load->helper(array('member','auto_codeIgniter','string'));
 		
 		$this->method_config['upload'] = array(
-										'thumb'=>array('upload_size'=>1024,'upload_file_type'=>'jpg|png|gif','upload_path'=>'uploadfile/user','upload_url'=>'/uploadfile/user/'),
+										'thumb'=>array('upload_size'=>1024,'upload_file_type'=>'jpg|png|gif','upload_path'=>'uploadfile/user','upload_url'=>SITE_URL.'uploadfile/user/'),
 										);
 	}
 	

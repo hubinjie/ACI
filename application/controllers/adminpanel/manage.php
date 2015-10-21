@@ -9,7 +9,7 @@ class Manage extends Admin_Controller {
 
 	function cache(){
 		$this->reload_all_cache();
-		$this->showmessage('全局缓存成功');
+		$this->showmessage('全局缓存成功',site_url('adminpanel'));
 	}
 
 	function go($id=0){
