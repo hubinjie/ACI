@@ -224,10 +224,10 @@ DROP TABLE IF EXISTS `t_sys_sessions`;
 CREATE TABLE `t_sys_sessions` (
   `id` varchar(40) NOT NULL DEFAULT '0',
   `ip_address` varchar(16) NOT NULL DEFAULT '0',
-  `user_agent` varchar(120) NOT NULL,
+  `user_agent` varchar(120) DEFAULT '',
   `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
   `data` text NOT NULL,
-  `timestamp` timestamp NULL DEFAULT NULL,
+  `timestamp` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `last_activity_idx` (`last_activity`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
