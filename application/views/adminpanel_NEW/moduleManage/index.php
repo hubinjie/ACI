@@ -1,5 +1,5 @@
 <h3 class="page-header">
-<?php aci_ui_a($folder_name,'moduleinstall','index','',' class="btn btn-info btn-sm pull-right"','<span class="glyphicon glyphicon-plus"></span> 安装新模块')?>  模块管理器 </h3>
+<?php aci_ui_a($folder_name,'moduleInstall','index','',' class="btn btn-info btn-sm pull-right"','<span class="glyphicon glyphicon-plus"></span> 安装新模块')?>  模块管理器 </h3>
 <div class="alert alert-success alert-dismissible" role="alert">
   <strong>友情提示</strong> 不需要的模块可以停用，停用后的模块可以再次启用，也可以停用后直接删除。
 </div>

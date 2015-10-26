@@ -17,9 +17,9 @@ class MY_Controller extends CI_Controller
 		$this->load->driver('cache',array('adapter'=>'file'));
 		$this->load->helper(array('global','url','string','text','language','auto_codeIgniter_helper','member'));
 
-		$this->page_data['folder_name']=strtolower(substr($this->router->directory, 0, -1)) ;
-		$this->page_data['controller_name']= strtolower($this->router->class);
-		$this->page_data['method_name']= strtolower($this->router->method);
+		$this->page_data['folder_name']=trim(substr($this->router->directory, 0, -1)) ;
+		$this->page_data['controller_name']= trim($this->router->class);
+		$this->page_data['method_name']= trim($this->router->method);
 		$this->page_data['controller_info']= $this->config->item($this->page_data['controller_name'],'module');
 
 		$this->config->load('aci');
@@ -223,16 +223,16 @@ class Member_Controller extends Front_Controller{
 	protected function check_priv()
 	{
 		$cache_member_role_priv = getcache('cache_member_role_priv');
-		if($this->page_data['folder_name'] =='member' && $this->page_data['controller_name'] =='manage' && in_array($this->page_data['method_name'], array('login', 'logout','manage'))) return true;
+		if(strtolower($this->page_data['folder_name']) =='member' && strtolower($this->page_data['controller_name']) =='manage' && in_array(strtolower($this->page_data['method_name']), array('login', 'logout','manage'))) return true;
 		if($this->group_id == SUPERADMIN_GROUP_ID) return true;
-		if(preg_match('/^public_/',$this->page_data['method_name'])) return true;
+		if(preg_match('/^public_/',strtolower($this->page_data['method_name']))) return true;
 
 		// 如果有缓存，缓存优先
 		if($this->current_role_priv_arr)
 		{
 			$found=false;
 			foreach($this->current_role_priv_arr as $k=>$v){
-				if($v['method']==$this->page_data['method_name']&&$v['controller']==$this->page_data['controller_name']&&$v['folder']==$this->page_data['folder_name']){
+				if(strtolower($v['method'])==strtolower($this->page_data['method_name'])&&strtolower($v['controller'])==strtolower($this->page_data['controller_name'])&&strtolower($v['folder'])==strtolower($this->page_data['folder_name'])){
 					$found=true;
 					break;
 				}
@@ -334,8 +334,8 @@ class Member_Controller extends Front_Controller{
 		$result =  array();
 		if($this->all_module_menu)
 		foreach($this->all_module_menu as $k=>$v){
-			if($show_where==1&&$v['folder']!="adminpanel")continue;
-			if($show_where==0&&$v['folder']=="adminpanel")continue;
+			if($show_where==1&&strtolower($v['folder'])!="adminpanel")continue;
+			if($show_where==0&&strtolower($v['folder'])=="adminpanel")continue;
 			if($v['parent_id']==$parent_id&&$v['is_display']==1&&$v['is_side_menu']==1){
 				$result[] = $v;
 			}
@@ -426,7 +426,7 @@ class Admin_Controller extends Member_Controller{
 	{
 		if($this->page_data['folder_name'] =='adminpanel' && $this->page_data['controller_name'] =='manage' && in_array($this->page_data['method_name'], array('login', 'logout','manage'))) return true;
 		if($this->group_id == SUPERADMIN_GROUP_ID) return true;
-		if(preg_match('/^public_/',$this->page_data['method_name'])||($this->page_data['method_name']=="go"&&$this->page_data['controller_name']=="manage")) return true;
+		if(preg_match('/^public_/',strtolower($this->page_data['method_name']))||(strtolower($this->page_data['method_name'])=="go"&&strtolower($this->page_data['controller_name'])=="manage")) return true;
 
 		// 如果有缓存，缓存优先
 		if($this->current_role_priv_arr)
@@ -434,7 +434,7 @@ class Admin_Controller extends Member_Controller{
 			$found=false;
 			foreach($this->current_role_priv_arr as $k=>$v){
 	
-				if($v['method']==$this->page_data['method_name']&&$v['controller']==$this->page_data['controller_name']&&$v['folder']==$this->page_data['folder_name']){
+				if(strtolower($v['method'])==strtolower($this->page_data['method_name'])&&strtolower($v['controller'])==strtolower($this->page_data['controller_name'])&&strtolower($v['folder'])==strtolower($this->page_data['folder_name'])){
 					$found=true;
 					break;
 				}
@@ -477,7 +477,7 @@ class Admin_Controller extends Member_Controller{
 	protected function view($view_file,$sub_page_data=NULL,$cache=false)
 	{
 		$view_file= $this->page_data['folder_name'].DIRECTORY_SEPARATOR.$this->page_data['controller_name'].DIRECTORY_SEPARATOR.$view_file;
-
+		
 		if(isset($this->current_member_info))
 		{
 			$page_data['current_member_info']=$this->current_member_info;
