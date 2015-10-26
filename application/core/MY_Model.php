@@ -233,6 +233,7 @@ class Base_Model extends MY_Model{
 	 * @return boolean
 	 */
 	final public function insert($data, $return_insert_id = true) {
+		if(DEMO_STATUS)return true;
 		$this->db->insert($this->table_name, $data);
 		if($return_insert_id)return $this->db->insert_id();
 	}
@@ -261,6 +262,7 @@ class Base_Model extends MY_Model{
 	 * @return boolean
 	 */
 	final public function update($data, $where = '',$use_set=false) {
+		if(DEMO_STATUS)return true;
 		$this->db->where($where);
 	
 		if(is_array($data))
@@ -306,6 +308,7 @@ class Base_Model extends MY_Model{
 					}
 				}
 			}
+		
 		return $this->db->update($this->table_name, $data);
 	}
 	
@@ -323,6 +326,7 @@ class Base_Model extends MY_Model{
 	 * @return boolean
 	 */
 	final public function delete($where) {
+		if(DEMO_STATUS)return true;
 		return $this->db->delete($this->table_name, $where);
 	}
 	

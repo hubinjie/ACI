@@ -58,6 +58,12 @@
                     </ul>
 
                     <div style="padding: 0px 10px">
+                        <?php if(DEMO_STATUS):?>
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <strong>友情提示! </strong> 当前为演示状态，增删改都不会生效，谢谢, 需要变成正式版，请修改constans.php 中 DEMO_STATUS = FALSE；
+                        </div>
+                        <?php endif;?>
                         <?php echo $sub_page ?>
                     </div>
                 </div>

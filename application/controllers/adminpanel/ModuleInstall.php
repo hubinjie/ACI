@@ -10,6 +10,7 @@ class ModuleInstall extends Admin_Controller {
 	
 	function check()
 	{
+		if(DEMO_STATUS)$this->showmessage('当前为演示状态，无法上传模块');
 		  $config['upload_path'] = INTALL_UPLOAD_TEMP_PATH;
 		  $config['allowed_types'] = 'zip';
 		  $config['max_size'] = '1024';
@@ -33,6 +34,7 @@ class ModuleInstall extends Admin_Controller {
 			   $file_name = $upload_data['upload_data']['raw_name'];
 			   $this->showmessage('上传成功,等待安装。',base_url($this->page_data['folder_name'].'/'.$this->page_data['controller_name'].'/setup/'.$file_name.'/123'));
 		  }
+
 	}
 
 	function overwrite_setup(){
@@ -41,6 +43,7 @@ class ModuleInstall extends Admin_Controller {
 	
 	function setup($file_name='',$form_PSOT_SN='')
 	{
+		if(DEMO_STATUS)$this->showmessage('当前为演示状态，无法上传模块');
 		$uploaded_file = INTALL_UPLOAD_TEMP_PATH.DIRECTORY_SEPARATOR.$file_name.".zip";
 		if(!file_exists($uploaded_file))
 		{
@@ -296,6 +299,7 @@ class ModuleInstall extends Admin_Controller {
 	//删除
 	function delete($moduleName='')
 	{
+		if(DEMO_STATUS)$this->showmessage('当前为演示状态，无法删除模块');
 		$moduleName=  trim($moduleName);
 		if(isset($this->aci_config[$moduleName]))
 		{
@@ -315,6 +319,7 @@ class ModuleInstall extends Admin_Controller {
 	
 	function uninstall($moduleName='')
 	{
+		
 		$moduleName=  trim($moduleName);
 		if(isset($this->aci_config[$moduleName]))
 		{

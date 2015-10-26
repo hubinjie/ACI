@@ -31,9 +31,9 @@
                             <td><?php echo $k + 1 ?></td>
                             <td><?php echo $v['role_name'] ?></td>
                             <td>
-                                <?php aci_ui_a($folder_name, 'role', 'setting', $v['role_id'], ' class="btn btn-default btn-xs"', '<span class="glyphicon glyphicon-eye-open"></span> 权限分配') ?>
                                 <?php aci_ui_a($folder_name, 'role', 'edit', $v['role_id'], ' class="btn btn-default btn-xs"', '<span class="glyphicon glyphicon-edit"></span> 修改') ?>
                                 <?php if($v['role_id']!=SUPERADMIN_GROUP_ID):?>
+                                <?php aci_ui_a($folder_name, 'role', 'setting', $v['role_id'], ' class="btn btn-default btn-xs"', '<span class="glyphicon glyphicon-eye-open"></span> 权限分配') ?>
                                 <?php aci_ui_a($folder_name, 'role', 'delete_one', $v['role_id'], ' class="btn btn-default btn-xs"', '<span class="glyphicon glyphicon-edit"></span> 删除') ?>
                                 <?php endif;?>
                             </td>

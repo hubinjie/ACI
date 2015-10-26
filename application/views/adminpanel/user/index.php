@@ -43,7 +43,7 @@
                     <tbody>
                     <?php foreach ($data_list as $k => $v): ?>
                         <tr>
-                            <td><input type="checkbox" name="pid[]" value="<?php echo $v['user_id'] ?>"/></td>
+                            <td><?php if($v['user_id']!=$this->user_id):?><input type="checkbox" name="pid[]" value="<?php echo $v['user_id'] ?>"/><?php else:?> - <?php endif;?></td>
                             <td> <?php if ($v['is_lock']): ?><span
                                     class="glyphicon glyphicon-lock"></span><?php else: ?><span
                                     class="glyphicon glyphicon-user"></span><?php endif; ?></td>

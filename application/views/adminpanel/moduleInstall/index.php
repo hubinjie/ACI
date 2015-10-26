@@ -22,6 +22,7 @@
     </div>
 <?php else:?>
 	<?php if($uploadChomd>=644&&$configChomd>=644):?>
+  <?php if(!DEMO_STATUS):?>
     <form enctype="multipart/form-data" class="form-horizontal" method="post" action="<?php echo  base_url($folder_name.'/'.$controller_name.'/check')?>" role="form" >
       <div class="form-group">
         <label class="col-sm-2 control-label">安装包</label>
@@ -43,6 +44,27 @@
         </div>
       </div>
     </form>
+    <?php else:?>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">安装包</label>
+        <div class="col-sm-10">
+          <input type="file" id="autocodeigniterZipFile" name="autocodeigniterZipFile">
+            <p class="help-block">请从autocodeigniter.com官方下载模块安装程序。</p>
+        </div>
+      </div>
+     <div class="form-group">
+        <label class="col-sm-2 control-label">官方文件校验码</label>
+        <div class="col-sm-4">
+          <input type="text" id="autocodeigniterCode" class="form-control" name="autocodeigniterCode">
+            <p class="help-block">官方文件校验码简单校验文件真实性。</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <?php aci_ui_button('module','install','check',' type="submit" id="dosubmit" value="upload" class="btn btn-primary btn-lg" ','很抱歉当前为演示状态，安全考虑无法上传模块...')?>
+        </div>
+      </div>
+    <?php endif;?>
     <?php else:?>
 		<?php if($uploadChomd==0):?>
             <div class="alert alert-danger" role="alert">
