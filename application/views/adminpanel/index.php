@@ -16,7 +16,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Touchsoft.cn</a>
+                    <a class="navbar-brand" href="#"><?php echo SITE_NAME?></a>
                     <p> </p>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">

@@ -55,8 +55,8 @@ define('INTALL_UPLOAD_TEMP_PATH',''.FCPATH.'/uploadfile/temp/install');
 
 define('SYS_TIME', time());
 
-define('SITE_NAME','塔齐管理系统 ');
-define('WEBSITE_BASE_NAME','塔齐管理系统');
+define('SITE_NAME','ACI-WEB管理系统 ');
+define('WEBSITE_BASE_NAME','ACI-WEB管理系统');
 
 
 define('SUPERADMIN_GROUP_ID',  1);
