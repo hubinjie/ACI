@@ -60,6 +60,7 @@ define('WEBSITE_BASE_NAME','ACI-WEB管理系统');
 
 
 define('SUPERADMIN_GROUP_ID',  1);
+define('REGISTER_GROUP_ID',  3);
 define('DEMO_STATUS',  false);//演示版本状态，有权限控制
 
 define('ADMIN_URL_PATH',  SITE_URL.'adminpanel/');

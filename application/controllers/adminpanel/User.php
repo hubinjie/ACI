@@ -25,7 +25,7 @@ class User extends Admin_Controller {
         	
         }
         $where = implode(" and ",$where_arr);
-        $data_list = $this->Member_model->listinfo($where,'*',$orderby , $page_no, $this->Member_model->page_size,'',$this->Member_model->page_size,page_list_url('member/staff/index',true));
+        $data_list = $this->Member_model->listinfo($where,'*',$orderby , $page_no, $this->Member_model->page_size,'',$this->Member_model->page_size,page_list_url('adminpanel/user/index',true));
 				
 		$this->view('index',array('data_list'=>$data_list,'pages'=>$this->Member_model->pages,'keyword'=>$keyword,'require_js'=>true));
 	}
@@ -234,16 +234,6 @@ class User extends Admin_Controller {
         {
         	if(isset($_POST['dosubmit']))
             {
-            	
-                $uc_first_id=  ucfirst($controlId);
-            	if(DEMO_STATUS):
-            		 $file_name ="nopic.gif";
-            		 $file_size = 0;
-            		 $image_width = 80;
-            		 $image_height = 80;
-            		 $this->showmessage("上传成功！",'','','',$callbackJSfunction?"window.parent.get{$uc_first_id}(\"$file_name\",\"$file_size\",\"$image_width\",\"$image_height\");":"$(window.parent.document).find(\"#$controlId\").val(\"$file_name\");$(\"#dialog\" ).dialog(\"close\")");	
-
-            	endif;
                 $upload_path = $this->method_config['upload'][$fieldName]['upload_path'];
                
                
@@ -266,6 +256,7 @@ class User extends Admin_Controller {
                 $file_size = $filedata['file_size'];
                 $image_width = $isImage?$filedata['image_width']:0;
                 $image_height =  $isImage?$filedata['image_height']:0;
+                $uc_first_id=  ucfirst($controlId);
                 $this->showmessage("上传成功！",'','','',$callbackJSfunction?"window.parent.get{$uc_first_id}(\"$file_name\",\"$file_size\",\"$image_width\",\"$image_height\");":"$(window.parent.document).find(\"#$controlId\").val(\"$file_name\");$(\"#dialog\" ).dialog(\"close\")");	
             }else
             {

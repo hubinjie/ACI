@@ -35,5 +35,5 @@
 7. *如果为子目录请将安装要目录下面的.htacess中的 行4 改成你实际的路径如
    RewriteBase /aci/
 
-8. 进入后台，运行 http://localhost/(*你的子目录，根目录略过)/adminpanel/manage/cache ，会自动更新一下栏目缓存，请注意
+8. 进入后台，运行 http://你的安装网址/adminpanel/manage/cache ，会自动更新一下栏目缓存，请注意
    如若有任何问题，请联系我QQ：5516448	

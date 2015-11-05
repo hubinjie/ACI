@@ -86,8 +86,7 @@ class Manage extends Admin_Controller {
 
 			$this->Times_model->delete(array('username'=>$username));
 			if($r['is_lock'])exit(json_encode(array('status'=>false,'tips'=>' 您的帐号已被锁定，暂时无法登录')));
-
-			$this->Member_model->update(array('last_login_ip'=>$ip,'last_login_time'=>SYS_TIME),array('user_id'=>$r['user_id']));
+			$this->Member_model->update(array('last_login_ip'=>$ip,'last_login_time'=>date('Y-m-d H:i:s')),array('user_id'=>$r['user_id']));
 			$this->session->set_userdata('user_id',$r['user_id']);
 			$this->session->set_userdata('user_fullname',$r['fullname']);
 			$this->session->set_userdata('user_name',$username);

@@ -18,7 +18,7 @@ class Member_model extends Base_Model {
 		if(!$this->check_username_exists($username))
 		{
 			$password = md5(md5($password.$encrypt));
-			$newid = $this->insert(array('mobile'=>$mobileno,'username'=>$username,'password'=>$password,'reg_ip'=>$this->input->ip_address(),'reg_time'=>SYS_TIME,'encrypt'=>$encrypt,'last_login_ip'=>$this->input->ip_address(),'last_login_time'=>SYS_TIME,'created'=>date('Y-m-d H:i:s'),'modified'=>date('Y-m-d H:i:s'),'is_seller'=>0));
+			$newid = $this->insert(array('group_id'=>REGISTER_GROUP_ID,'mobile'=>$mobileno,'username'=>$username,'password'=>$password,'reg_ip'=>$this->input->ip_address(),'reg_time'=>date('Y-m-d H:i:s'),'encrypt'=>$encrypt,'last_login_ip'=>$this->input->ip_address(),'last_login_time'=>date('Y-m-d H:i:s'),'created'=>date('Y-m-d H:i:s'),'modified'=>date('Y-m-d H:i:s'),'is_seller'=>0));
 			
 			return $newid;
 		}

@@ -29,7 +29,7 @@ CREATE TABLE `t_sys_member` (
   `user_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `username` char(100) NOT NULL,
   `password` char(32) NOT NULL,
-  `email` char(50) NOT NULL,
+  `email` char(50) DEFAULT '',
   `group_id` tinyint(3) unsigned DEFAULT '0',
   `is_choose_type` tinyint(1) unsigned DEFAULT '0',
   `open_id` varchar(100) DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `t_sys_member` (
   `reg_ip` char(15) DEFAULT NULL,
   `reg_time` datetime DEFAULT NULL,
   `last_login_ip` char(15) DEFAULT NULL,
-  `last_login_time` int(10) unsigned DEFAULT '0',
+  `last_login_time` datetime DEFAULT NULL,
   `encrypt` varchar(50) DEFAULT NULL,
   `is_lock` tinyint(1) DEFAULT '0',
   `fullname` varchar(50) DEFAULT NULL,
@@ -58,13 +58,13 @@ CREATE TABLE `t_sys_member` (
   UNIQUE KEY `username` (`username`(15)),
   KEY `email` (`email`),
   KEY `groupID` (`group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40000 ALTER TABLE `t_sys_member` DISABLE KEYS */;
 
 INSERT INTO `t_sys_member` (`user_id`, `username`, `password`, `email`, `group_id`, `is_choose_type`, `open_id`, `avatar`, `reg_ip`, `reg_time`, `last_login_ip`, `last_login_time`, `encrypt`, `is_lock`, `fullname`, `qq`, `weixin`, `is_seller`, `created`, `modified`, `is_email_validate`, `is_mobile_validate`, `mobile`, `sex`, `birthday`, `province_code`, `city_code`, `district_code`)
 VALUES
-  (1, 'test', 'fb469d7ef430b0baf0cab6c436e70375', 'hubinjie@live.cn', 1, 0, NULL, 'aci.jpg', NULL, NULL, '::1', 1445519319, NULL, 0, '胡子锅', '5516448', 'dawang', 1, '2015-03-05 18:12:00', '2015-03-10 22:31:19', 1, 1, '13046697138', '男', '1985-10-21', '310000', '310100', '310118'),
-  (2, 'xiaoer', 'b5d3c7db5ec308deb8e79621c7f69055', 'lyhuc@163.com', 2, 0, NULL, 'nopic.gif', '::1', NULL, '::1', 1444385734, 'wOxmG', 0, '小二', NULL, NULL, 0, NULL, NULL, 0, 0, '13046697138', '0', NULL, NULL, NULL, NULL);
+  (1, 'test', 'fb469d7ef430b0baf0cab6c436e70375', 'hubinjie@live.cn', 1, 0, NULL, 'aci.jpg', NULL, NULL, '180.168.103.162', NULL, NULL, 0, '胡子锅', '5516448', 'dawang', 1, '2015-03-05 18:12:00', '2015-03-10 22:31:19', 1, 1, '13099999999', '男', '1985-10-21', '310000', '310100', '310118'),
+  (2, 'xiaoer', 'f1c0334807a3a51724850170326d3b6e', 'lyhuc@163.com', 2, 0, NULL, 'nopic.gif', '::1', NULL, '::1', NULL, 'wOxmG', 1, '小二', NULL, NULL, 0, NULL, NULL, 0, 0, '13099999999', '0', NULL, NULL, NULL, NULL);
 
 /*!40000 ALTER TABLE `t_sys_member` ENABLE KEYS */;
 UNLOCK TABLES;
