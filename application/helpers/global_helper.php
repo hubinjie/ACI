@@ -330,7 +330,7 @@ if ( ! function_exists('thumb'))
 						$multipage .= ' <li><a href="'.pageurl($urlrule, $pages, $array).'">'.$pages.'</a> <a href="'.pageurl($urlrule, $curr_page+1, $array).'" class="nextpage">&gt;&gt;</a></li>';
 					}
 				} elseif($curr_page==$pages) {
-					$multipage .= ' <li><a class="currentpage">'.$pages.'</a></li> ';
+					$multipage .= ' <li class="active"><a >'.$pages.'</a></li> ';
 				} else {
 					$multipage .= ' <li><a href="'.pageurl($urlrule, $pages, $array).'">'.$pages.'</a> <a href="'.pageurl($urlrule, $curr_page+1, $array).'" class="nextpage"">&gt;&gt;</a></li>';
 				}
