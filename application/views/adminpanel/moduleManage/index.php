@@ -13,7 +13,7 @@
               <th>版本</th>
               <th>作者</th>
               <th>简介</th>
-              <th>最后修改时间</th>
+              <th>最后修改时间</th> 
               <th>操作</th>
             </tr>
           </thead>
@@ -30,11 +30,11 @@
                 <?php if(!$v['system']):?>
               	<?php if($v['works']):?>
                 
-                <?php aci_ui_a($folder_name,"moduleinstall",'uninstall',$v['moduleName'],' class="btn btn-default btn-xs"','<span class="glyphicon glyphicon-stop"></span> 停用')?>
+                <?php aci_ui_a($folder_name,"moduleInstall",'uninstall',$v['moduleName'],' class="btn btn-default btn-xs"','<span class="glyphicon glyphicon-stop"></span> 停用')?>
                <a href="<?php echo base_url($v['moduleUrl'])?>" target="_blank" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-send"></span> 查看</a>
                 <?php else:?>
-                <?php aci_ui_a($folder_name,"moduleinstall",'reinstall',$v['moduleName'],' class="btn btn-info btn-xs"','<span class="glyphicon glyphicon-play"></span> 启用')?>
-                <?php aci_ui_a($folder_name,"moduleinstall",'delete',$v['moduleName'],' class="btn btn-default btn-xs"','<span class="glyphicon glyphicon-remove"></span> 删除')?>
+                <?php aci_ui_a($folder_name,"moduleInstall",'reinstall',$v['moduleName'],' class="btn btn-info btn-xs"','<span class="glyphicon glyphicon-play"></span> 启用')?>
+                <?php aci_ui_a($folder_name,"moduleInstall",'delete',$v['moduleName'],' class="btn btn-default btn-xs"','<span class="glyphicon glyphicon-remove"></span> 删除')?>
                 <?php endif;?>
                 <?php else:?>
                 <button type="button" class="btn btn-default btn-xs "><span class="glyphicon glyphicon-lock"></span>系统模块无法操作</button>
