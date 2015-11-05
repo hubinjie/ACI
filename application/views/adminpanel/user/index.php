@@ -43,7 +43,7 @@
                     <tbody>
                     <?php foreach ($data_list as $k => $v): ?>
                         <tr>
-                            <td><?php if($v['user_id']!=$this->user_id):?><input type="checkbox" name="pid[]" value="<?php echo $v['user_id'] ?>"/><?php else:?> - <?php endif;?></td>
+                            <td><input type="checkbox" name="pid[]" value="<?php echo $v['user_id'] ?>"/></td>
                             <td> <?php if ($v['is_lock']): ?><span
                                     class="glyphicon glyphicon-lock"></span><?php else: ?><span
                                     class="glyphicon glyphicon-user"></span><?php endif; ?></td>
@@ -52,7 +52,7 @@
                             <td><?php echo $v['email'] ?></td>
                             <td><?php echo $v['mobile'] ?></td>
                             <td><?php echo group_name($v['group_id']) ?></td>
-                            <td><?php echo date("Y-m-d H:i:s",$v['last_login_time']) ?></td>
+                            <td><?php echo $v['last_login_time'] ?></td>
                             <td>
                                 <?php aci_ui_a($folder_name, 'user', 'edit', $v['user_id'], ' class="btn btn-default btn-xs"', '<span class="glyphicon glyphicon-edit"></span> 修改') ?>
                             </td>
