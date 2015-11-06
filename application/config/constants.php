@@ -61,7 +61,9 @@ define('WEBSITE_BASE_NAME','ACI-WEB管理系统');
 
 define('SUPERADMIN_GROUP_ID',  1);
 define('REGISTER_GROUP_ID',  3);
-define('DEMO_STATUS',  false);//演示版本状态，有权限控制
+define('DEMO_STATUS',  FALSE);//演示版本状态，有权限控制
+define('SETUP_BACKUP_OVERWRITE_FILES', FALSE);#是否备份存在的模块文件
+
 
 define('ADMIN_URL_PATH',  SITE_URL.'adminpanel/');
 define('ADMIN_CSS_PATH',  SITE_URL.'css/adminpanel/');

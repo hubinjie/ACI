@@ -106,7 +106,7 @@ class ModuleInstall extends Admin_Controller {
 								$created_sql = str_replace($table_name,"t_aci_tmp_created_table",$arr_aci_config['installSQL']);
 								$this->Module_menu_model->query($created_sql);
 								$new_table_field_list = $this->Module_menu_model->select_sql("SHOW  FIELDS FROM  t_aci_tmp_created_table ");
-
+								
 								$old_table_field_list = $this->Module_menu_model->select_sql("SHOW  FIELDS FROM  {$table_name} ");
 								if($new_table_field_list)foreach($new_table_field_list as $k=>$v){
 									//如果没有就新增，
@@ -215,7 +215,10 @@ class ModuleInstall extends Admin_Controller {
 			  $_pathinfo = pathinfo(FCPATH.$v);
 			  dir_create($_pathinfo['dirname']);
 			  if(file_exists(FCPATH.$v)){
-				  @rename(FCPATH.$v,FCPATH.$v.".".date("ymdhis").".bak");
+			  	 if(SETUP_BACKUP_OVERWRITE_FILES){
+				  	@rename(FCPATH.$v,FCPATH.$v.".".date("ymdhis").".bak");
+				  }
+				  
 			  }
 			  if ( ! write_file(FCPATH.$v, $str_aci))
 			  {
