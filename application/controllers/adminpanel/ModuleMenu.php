@@ -353,7 +353,7 @@ class ModuleMenu extends Admin_Controller {
 		//删除在非正常显示的栏目
 		foreach($this->menus as $cid => $cat) {
 			if($cat['parent_id'] != 0 && !isset($this->menus[$cat['parent_id']])) {
-				$this->menus->delete(array('menu_id'=>$cid));
+				$this->Module_menu_model->delete(array('menu_id'=>$cid));
 			}
 		}
 
