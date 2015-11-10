@@ -154,6 +154,22 @@ class Front_Controller extends MY_Controller{
 		$array = array();
 		foreach ($datas as $r) {
 			$r['url'] =base_url($r['folder'].'/'.$r['controller'].'/'.$r['method']) ;
+
+			$arr_parentid =  $r['arr_parentid'];
+			$arr_parentid = explode(",",$arr_parentid);
+
+			#缓存的时候自动将第一级要跳转的URL写入到缓存
+			if(count($arr_parentid)==1) {
+				#找到下面第一个子目录
+				$first_child_arr = $this->Module_menu_model->get_one("arr_parentid like '0,".$r['menu_id']."' and is_display = 1","*","list_order asc");
+
+				if($first_child_arr){
+					$first_child_child_arr = $this->Module_menu_model->get_one("arr_parentid like '0,".$r['menu_id'].",".$first_child_arr['menu_id']."' and is_display = 1","*","list_order asc");
+					if($first_child_child_arr){
+						$r['url'] =base_url($first_child_child_arr['folder'].'/'.$first_child_child_arr['controller'].'/'.$first_child_child_arr['method']) ;
+					}
+				}
+			}
 			$menus[$r['menu_id']] = $r;
 		}
 		setcache('cache_module_menu_all', $menus);
