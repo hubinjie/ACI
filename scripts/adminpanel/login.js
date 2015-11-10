@@ -1,6 +1,7 @@
 requirejs(['jquery','aci','cookie','bootstrap','bootstrapValidator','message'],
 	function($,aci) {
-	
+
+
 		if(top!=self) if(self!=top) top.location=self.location;
 
 		if ($.cookie("rmbUser") =="true") { 
@@ -9,6 +10,7 @@ requirejs(['jquery','aci','cookie','bootstrap','bootstrapValidator','message'],
 		    $("#password").val($.cookie("passWord"));
 		  }
 
+		$("#dosubmit").removeAttr("disabled");
 		$('#validateform').bootstrapValidator({
 				message: '输入项不能为空',
 				feedbackIcons: {

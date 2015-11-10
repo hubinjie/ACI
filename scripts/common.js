@@ -53,7 +53,8 @@ require.config({
             exports: "$",
             deps: ['jquery']
         },
-    }
+    },
+    waitSeconds: 0
 
 });
 

@@ -24,7 +24,7 @@
                 <input type="password" id="password" name="password" class="form-control" placeholder="请输入管理密码"  autofocus>
             </div>
 
-            <button class="btn  btn-primary btn-block" type="submit" id="dosubmit"> 登录</button>
+            <button class="btn  btn-primary btn-block" type="submit" id="dosubmit" disabled="disabled"> 登录</button>
 
             <div class="checkbox">
                 <label>
