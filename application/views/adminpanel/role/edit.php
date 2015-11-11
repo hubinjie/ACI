@@ -36,4 +36,11 @@
 	</div>
 
 </form>
-<script language="javascript" type="text/javascript">var id="<?php echo $data_info['role_id']?>";var folder_name = "<?php echo $folder_name?>";var edit= <?php echo $is_edit?"true":"false"?>;  require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/role/edit.js']); </script>
+<script language="javascript" type="text/javascript">
+	var id="<?php echo $data_info['role_id']?>";
+	var edit= <?php echo $is_edit?"true":"false"?>;
+	var folder_name = "<?php echo $folder_name?>";
+	require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
+		require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/edit.js']);
+	});
+</script>

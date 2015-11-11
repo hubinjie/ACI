@@ -34,4 +34,9 @@
         </div>
         <div class="form-signin-footer"> <a><i class="glyphicon glyphicon-question-sign"></i> 忘记密码？</a></div>
     </form>
-    <script language="javascript" type="text/javascript">require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/login.js']); </script>
+
+    <script language="javascript" type="text/javascript">
+        require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
+            require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/login.js']);
+        });
+    </script>

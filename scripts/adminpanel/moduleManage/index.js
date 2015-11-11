@@ -1,3 +1,4 @@
-requirejs(['jquery','aci','bootstrap'],
-    function($,aci,bootstrap) {
-    });
+define(function (require) {
+    var $ = require('jquery');
+    require('bootstrap');
+});

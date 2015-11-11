@@ -196,7 +196,7 @@ class ModuleInstall extends Admin_Controller {
 				$zip->close(); 
 				
 				
-			   $this->view('setup_error',array('upload_data'=>$check_result));
+			   $this->view('setup_error',array('require_js'=>true,'upload_data'=>$check_result));
 		  }
 	}
 	
@@ -373,7 +373,7 @@ class ModuleInstall extends Admin_Controller {
 		 $install_config_chomd = $status?@octal_permissions(fileperms(APPPATH.'config'.DIRECTORY_SEPARATOR.'aci.php')):0;
 	
 	
-		 $error = array('uploadChomd'=>$install_uploaded_chomd,'configChomd'=>$install_config_chomd,'supportZip'=>class_exists('ZipArchive'));
+		 $error = array('require_js'=>true,'uploadChomd'=>$install_uploaded_chomd,'configChomd'=>$install_config_chomd,'supportZip'=>class_exists('ZipArchive'));
 		 $this->view('index', $error);
 		  
 	}

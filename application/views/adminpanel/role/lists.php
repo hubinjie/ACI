@@ -61,4 +61,8 @@
         <div class="alert alert-warning" role="alert"> 暂无数据显示... 您可以进行新增操作</div>
     </div>
 <?php endif; ?>
-<script language="javascript" type="text/javascript"> require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/role/list.js']); </script>
+<script language="javascript" type="text/javascript">
+    require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
+        require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/list.js']);
+    });
+</script>

@@ -99,6 +99,7 @@
 
 </form>
 <script language="javascript" type="text/javascript">
+
 	var id = <?php echo $data_info['user_id']?>;
 	var edit= <?php echo $is_edit?"true":"false"?>;
 	var folder_name = "<?php echo $folder_name?>";
@@ -107,5 +108,8 @@
 		$("#thumb_SRC").attr("src","<?php echo $this->method_config['upload']['thumb']['upload_url']?>"+v);
 		$("#dialog" ).dialog("close");
 	}
-	require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/user/edit.js']);
+
+	require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
+		require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/edit.js']);
+	});
 </script>

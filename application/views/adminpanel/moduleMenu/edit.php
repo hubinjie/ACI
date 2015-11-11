@@ -85,9 +85,13 @@
 </div>
 
 
-<script language="javascript" type="text/javascript"> var edit = true;
+<script language="javascript" type="text/javascript">
+
     var menu_id =<?php echo $data_info['menu_id']?>;
     var edit =<?php echo $is_edit?"true":"false"?>;
     var folder_name="<?php echo $folder_name?>";
     var controller_name ="<?php echo $controller_name?>";
-    require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/edit.js']); </script>
+    require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
+        require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/edit.js']);
+    });
+</script>
