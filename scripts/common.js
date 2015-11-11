@@ -1,21 +1,21 @@
 require.config({
-	baseUrl: SITE_URL+'scripts',
+	baseUrl: SITE_URL+'scripts/',
     paths: {
-        "jquery": "lib/jquery", 
-        "jquery-ui": "lib/jquery-ui-1.10.0.custom.min", 
-		"jquery-ui-dialog-extend": "lib/jquery-ui-dialog-extend", 
-        "underscore": "lib/underscore",
-        "bootstrap": "lib/bootstrap", 
-		"validationEngine": "lib/jquery.validationEngine", 
-		"validationEngineLang": "lib/jquery.validationEngine-zh_CN", 
-		"bootstrapValidator": "lib/bootstrapValidator", 
-		"formValidation": "lib/formValidation.min", 
-		"aci":"lib/aci",
-		"message":"lib/sco.message",
-		"confirm":"lib/sco.confirm",
-		"modal":"lib/sco.modal",
-		"headroom":"lib/headroom.min",
-        "cookie":"lib/jquery.cookie"
+        "jquery": "./lib/jquery", 
+        "jquery-ui": "./lib/jquery-ui-1.10.0.custom.min", 
+		"jquery-ui-dialog-extend": "./lib/jquery-ui-dialog-extend", 
+        "underscore": "./lib/underscore",
+        "bootstrap": "./lib/bootstrap", 
+		"validationEngine": "./lib/jquery.validationEngine", 
+		"validationEngineLang": "./lib/jquery.validationEngine-zh_CN", 
+		"bootstrapValidator": "./lib/bootstrapValidator", 
+		"formValidation": "./lib/formValidation.min", 
+		"aci":"./lib/aci",
+		"message":"./lib/sco.message",
+		"confirm":"./lib/sco.confirm",
+		"modal":"./lib/sco.modal",
+		"headroom":"./lib/headroom.min",
+        "cookie":"./lib/jquery.cookie"
     },
     shim: {
         "jquery-ui": {
