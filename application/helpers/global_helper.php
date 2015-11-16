@@ -1052,6 +1052,16 @@ if ( ! function_exists('thumb'))
 			return str_replace(UPLOAD_TEMP_PATH,UPLOAD_TEMP_URL,$imgSavePath);
 		 }
 	}
+
+	if(!function_exists('callback_json_js'))
+	{
+		function callback_json_js($callback_name,$data)
+		{
+			if($callback_name=="") return  json_encode($data);
+
+			return $callback_name."(".(json_encode($data).")");
+		}
+	}
 		
 
 	
