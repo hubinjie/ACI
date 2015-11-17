@@ -199,6 +199,20 @@ $config['aci_module'] = array (
         'method' => 'delete_one',
         'caption' => '用户组管理-删除',
       ),
+      12 =>
+          array (
+              'folder' => 'adminpanel',
+              'controller' => 'user',
+              'method' => 'user_window',
+              'caption' => '用户-弹窗',
+          ),
+      13 =>
+          array (
+              'folder' => 'adminpanel',
+              'controller' => 'role',
+              'method' => 'group_window',
+              'caption' => '用户组-弹窗',
+          ),
     ),
   ),
   'member' => 

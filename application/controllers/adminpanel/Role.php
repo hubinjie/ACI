@@ -274,6 +274,19 @@ class Role extends Admin_Controller {
 		setcache('cache_member_group', $this->groups);
 		return $infos;
 	}
+
+	/**
+	 * 用户组弹窗
+	 * @return array
+	 */
+	function group_window($controlId='',$page_no=0)
+	{
+		$page_no = max(intval($page_no),1);
+
+		$data_list = $this->Member_role_model->select('',  '*', '', 'role_id ASC');
+
+		$this->view('choose',array('hidden_menu'=>true,'data_list'=>$data_list,'control_id'=>$controlId,'require_js'=>true));
+	}
 }
 
 // END role class

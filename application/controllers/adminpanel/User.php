@@ -267,4 +267,25 @@ class User extends Admin_Controller {
         	die('缺少上传参数');
         }
 	}
+
+	/**
+	 * 用户弹窗
+	 * @return array
+	 */
+	function user_window($controlId='',$page_no=0)
+	{
+		$page_no = max(intval($page_no),1);
+
+		$where_arr = array();
+		$orderby = $keyword= "";
+		if (isset($_GET['dosubmit'])) {
+			$keyword =isset($_GET['keyword'])?safe_replace(trim($_GET['keyword'])):'';
+			if($keyword!="") $where_arr[] = "concat(username,fullname,email,mobile) like '%{$keyword}%'";
+
+		}
+		$where = implode(" and ",$where_arr);
+		$data_list = $this->Member_model->listinfo($where,'*',$orderby , $page_no, $this->Member_model->page_size,'',$this->Member_model->page_size,page_list_url('adminpanel/user/index',true));
+
+		$this->view('choose',array('hidden_menu'=>true,'data_list'=>$data_list,'control_id'=>$controlId,'pages'=>$this->Member_model->pages,'keyword'=>$keyword,'require_js'=>true));
+	}
 }
