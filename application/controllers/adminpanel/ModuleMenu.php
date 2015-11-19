@@ -63,6 +63,8 @@ class ModuleMenu extends Admin_Controller {
 			$status = $this->Module_menu_model->update(array('is_side_menu'=>'^1'),$where);
 			if($status)
 			{
+				$this->repair();
+				$this->cache();
 				$this->showmessage('操作成功', HTTP_REFERER);
 			}else 
 			{
@@ -80,6 +82,8 @@ class ModuleMenu extends Admin_Controller {
 			$status = $this->Module_menu_model->delete($where." ");
 			if($status)
 			{
+				$this->repair();
+				$this->cache();
 				$this->showmessage('操作成功', HTTP_REFERER);
 			}else 
 			{
