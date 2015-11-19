@@ -215,60 +215,6 @@ $config['aci_module'] = array (
           ),
     ),
   ),
-  'member' => 
-  array (
-    'version' => '1',
-    'charset' => 'utf-8',
-    'lastUpdate' => '2015-10-09 20:10:10',
-    'moduleName' => 'user',
-    'modulePath' => 'member',
-    'moduleCaption' => '用户中心',
-    'description' => '由autoCodeigniter 系统的模块',
-    'fileList' => NULL,
-    'works' => true,
-    'moduleUrl' => 'member/manage',
-    'system' => true,
-    'coder' => '胡子锅',
-    'website' => 'http://',
-    'moduleDetails' => 
-    array (
-      0 => 
-      array (
-        'folder' => 'member',
-        'controller' => 'manage',
-        'method' => 'index',
-        'caption' => '用户中心-首页',
-      ),
-      1 => 
-      array (
-        'folder' => 'member',
-        'controller' => 'manage',
-        'method' => 'login',
-        'caption' => '用户中心-登录',
-      ),
-      2 => 
-      array (
-        'folder' => 'member',
-        'controller' => 'manage',
-        'method' => 'logout',
-        'caption' => '用户中心-注销',
-      ),
-      3 => 
-      array (
-        'folder' => 'member',
-        'controller' => 'profile',
-        'method' => 'change_pwd',
-        'caption' => '用户中心-修改密码',
-      ),
-      4 => 
-      array (
-        'folder' => 'member',
-        'controller' => 'manage',
-        'method' => 'public_go_[0-9+]',
-        'caption' => '管理中心-URL转向',
-      ),
-    ),
-  ),
   'moduleMenu' => 
   array (
     'version' => '1',

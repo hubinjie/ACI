@@ -15,10 +15,15 @@ require.config({
 		"confirm":"./lib/sco.confirm",
 		"modal":"./lib/sco.modal",
 		"headroom":"./lib/headroom.min",
-        "cookie":"./lib/jquery.cookie"
+        "cookie":"./lib/jquery.cookie",
+        "datetimepicker":"lib/jquery.datetimepicker"
     },
     shim: {
         "jquery-ui": {
+            exports: "$",
+            deps: ['jquery']
+        },
+        "datetimepicker": {
             exports: "$",
             deps: ['jquery']
         },

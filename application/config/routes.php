@@ -52,12 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
-
-$route['member'] = "member/manage";
-$route['member/login'] = "member/manage/login";
-$route['member/logout'] = "member/manage/logout";
-
-
 $route['adminpanel'] = "adminpanel/manage";
 $route['adminpanel/manage/go_(:num)'] = "adminpanel/manage/go/$1";
 $route['adminpanel/login'] = "adminpanel/manage/login";
