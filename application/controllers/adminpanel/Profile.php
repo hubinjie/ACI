@@ -32,15 +32,16 @@ class Profile extends Admin_Controller {
 
 			
 			
-			$password1 = md5(md5($password1));
+			$password1 = md5(md5($password1.$datainfo['encrypt']));
 			$c= $this->Member_model->count(array('user_id'=>$this->user_id,'password'=>$password1));
 			if(intval($c)!=1)exit(json_encode(array('status'=>false,'tips'=>'旧密码错误')));
 
 			
-			$password2 = md5(md5($password2));
+			$password2 = md5(md5($password2.$datainfo['encrypt']));
 			$status=$this->Member_model->update(array('password'=>$password2),array('user_id'=>$this->user_id));
 			if($status)
 			{
+				$this->session->sess_destroy();
 				exit(json_encode(array('status'=>true,'tips'=>'密码修改成功，请重新登录')));
 			}else 
 			{

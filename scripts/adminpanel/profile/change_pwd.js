@@ -6,10 +6,6 @@ define(function (require) {
     require('jquery-ui-dialog-extend');
     var aci = require('aci');
 
-    $(".uploadThumb_a").click(function(){
-        $.extDialogFrame(SITE_URL+"member/user/upload/thumb/thumb/1",{model:true,width:600,height:250,title:'请上传...',buttons:null});
-    });
-
     var validator_config = {
         message: '输入框不能为空',
         feedbackIcons: {
@@ -58,14 +54,14 @@ define(function (require) {
         $.scojs_message('请稍候...', $.scojs_message.TYPE_WAIT);
         $.ajax({
             type: "POST",
-            url: SITE_URL+folder_name+"/profile/change_pwd/",
+            url: SITE_URL+"adminpanel/profile/change_pwd/",
             data:  $("#validateform").serialize(),
             success:function(response){
                 var dataObj=jQuery.parseJSON(response);
                 if(dataObj.status)
                 {
                     $.scojs_message('密码修改成功，请重新登录...', $.scojs_message.TYPE_OK);
-                    aci.GoUrl(SITE_URL+folder_name+'/manage/logout/',3);
+                    aci.GoUrl(SITE_URL+'adminpanel/manage/logout/',1);
                 }else
                 {
                     $.scojs_message(dataObj.tips, $.scojs_message.TYPE_ERROR);
