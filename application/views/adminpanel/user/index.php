@@ -87,6 +87,7 @@
 </div>
 
 <script language="javascript" type="text/javascript">
+    var folder_name = "<?php echo $folder_name?>";
     require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
         require(['<?php echo SITE_URL?>scripts/<?php echo $folder_name?>/<?php echo $controller_name?>/index.js']);
     });

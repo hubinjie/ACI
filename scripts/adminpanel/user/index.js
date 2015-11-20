@@ -30,7 +30,7 @@ define(function (require) {
 			return false;
 		}
 
-		if(confirm("确定要删除菜单？"))
+		if(confirm("确定要删除用户吗？"))
 		{
 			$("#form_list").attr("action",SITE_URL+folder_name+"/user/delete/");
 			$("#form_list").submit();
