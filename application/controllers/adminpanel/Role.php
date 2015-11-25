@@ -52,10 +52,10 @@ class Role extends Admin_Controller {
     	if($this->input->is_ajax_request())
 		{
         	//接收POST参数
-			$_arr['role_name'] = isset($_POST["role_name"])?trim(safe_replace($_POST["role_name"])):exit(json_encode(array('status'=>false,'tips'=>'s')));
-			if($_arr['role_name']=='')exit(json_encode(array('status'=>false,'tips'=>'s')));
-			$_arr['description'] = isset($_POST["description"])?trim(safe_replace($_POST["description"])):exit(json_encode(array('status'=>false,'tips'=>'s')));
-			if($_arr['description']=='')exit(json_encode(array('status'=>false,'tips'=>'s')));
+			$_arr['role_name'] = isset($_POST["role_name"])?trim(safe_replace($_POST["role_name"])):exit(json_encode(array('status'=>false,'tips'=>'组名不能为空')));
+			if($_arr['role_name']=='')exit(json_encode(array('status'=>false,'tips'=>'组名不能为空')));
+			$_arr['description'] = isset($_POST["description"])?trim(safe_replace($_POST["description"])):exit(json_encode(array('status'=>false,'tips'=>'组介绍不能为空')));
+			if($_arr['description']=='')exit(json_encode(array('status'=>false,'tips'=>'组介绍不能为空')));
 			
             $new_id = $this->Member_role_model->insert($_arr);
             if($new_id)
@@ -112,10 +112,10 @@ class Role extends Admin_Controller {
 		{
         	if(!$data_info)exit(json_encode(array('status'=>false,'tips'=>'信息不存在')));
         	//接收POST参数
-			$_arr['role_name'] = isset($_POST["role_name"])?trim(safe_replace($_POST["role_name"])):exit(json_encode(array('status'=>false,'tips'=>'s')));
-			if($_arr['role_name']=='')exit(json_encode(array('status'=>false,'tips'=>'s')));
-			$_arr['description'] = isset($_POST["description"])?trim(safe_replace($_POST["description"])):exit(json_encode(array('status'=>false,'tips'=>'s')));
-			if($_arr['description']=='')exit(json_encode(array('status'=>false,'tips'=>'s')));
+			$_arr['role_name'] = isset($_POST["role_name"])?trim(safe_replace($_POST["role_name"])):exit(json_encode(array('status'=>false,'tips'=>'组名不能为空')));
+			if($_arr['role_name']=='')exit(json_encode(array('status'=>false,'tips'=>'组名不能为空')));
+			$_arr['description'] = isset($_POST["description"])?trim(safe_replace($_POST["description"])):exit(json_encode(array('status'=>false,'tips'=>'组介绍不能为空')));
+			if($_arr['description']=='')exit(json_encode(array('status'=>false,'tips'=>'组介绍不能为空')));
 			
             $status = $this->Member_role_model->update($_arr,array('role_id'=>$id));
             if($status)

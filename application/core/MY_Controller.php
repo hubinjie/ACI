@@ -70,7 +70,7 @@ class MY_Controller extends CI_Controller
 		}
 
 
-		if($_aci_config==NULL)exit('Module does not exists');
+		if($_aci_config==NULL)exit($this->page_data['controller_name'].'模块:未在ACI中注册');
 		if(!isset($_aci_config['works']))$this->showmessage('模块不存在，或未正确安装',base_url($this->page_data['folder_name'].'/moduleManage/index'));
 		if(!$_aci_config['works'])$this->showmessage('模块已经被卸载，请重新加载',base_url($this->page_data['folder_name'].'/moduleManage/index'));
 	}
