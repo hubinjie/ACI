@@ -106,7 +106,7 @@ class Front_Controller extends MY_Controller{
 	 * @param $istag
 	 * @return unknown_type
 	 */
-	protected function view($view_file,$page_data=false,$cache=false)
+	protected function view($view_file,$page_data=array(),$cache=false)
 	{
 		$view_file= $this->page_data['folder_name'].DIRECTORY_SEPARATOR.$this->page_data['controller_name'].DIRECTORY_SEPARATOR.$view_file;
 		if(isset($this->current_member_info))
