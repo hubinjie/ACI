@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 $config['aci_status'] = array (
-  'systemVersion' => '1.0.0',
+  'systemVersion' => '1.2.0',
   'installED' => false,
 );
 $config['aci_module'] = array (

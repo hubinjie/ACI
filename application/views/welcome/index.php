@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed.'); ?>
-{template 'public','header_view'}
+<?php echo template('public','header_view',array('date'=>$date))?>
  <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
@@ -22,6 +22,8 @@
             <h1 class="cover-heading">欢迎使用ACI.</h1>
             <p class="lead">恭喜您安装成功，默认管理帐号 test/test</p>
             <p class="lead">
+              <p>{title}</p>
+              <p>{date}</p>
               <a href="<?php echo site_url('adminpanel')?>" class="btn btn-lg btn-default">进入后台管理</a>
             </p>
           </div>
@@ -37,4 +39,4 @@
       </div>
 
     </div>
-{template 'public','footer_view'}
+<?php echo template('public','footer_view')?>

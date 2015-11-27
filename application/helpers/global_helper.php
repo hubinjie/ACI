@@ -48,34 +48,12 @@ if ( ! function_exists('template'))
 	 * @param $istag
 	 * @return unknown_type
 	 */
-	function template($module = 'aci', $template = 'index', $style = 'aci',$return_full_path=true) {
+	function template($module = 'aci', $template = 'index', $data = array()) {
 		global $CI;
 		if(!isset($CI))$CI =& get_instance();
-		if(!$style) $style = 'default';
-		$CI->load->library('template_cache','template_cache');
-		$template_cache = $CI->template_cache;
-		//编译模板生成地址
-		$compiledtplfile = $template_cache->cache_path.DIRECTORY_SEPARATOR.'caches_template'.DIRECTORY_SEPARATOR.$style.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR.$template.EXT;
-		//视图文件
-		$tplfile= APPPATH.'views'.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR.$template.EXT;
-		if(file_exists($tplfile)) {
-			if(!file_exists($compiledtplfile) || (@filemtime($tplfile) > @filemtime($compiledtplfile))) {	
-				$template_cache->template_compile($module, $template, $style);
-			}
-		} else {
-			//如果没有就调取默认风格模板
-			$compiledtplfile = $template_cache->cache_path.DIRECTORY_SEPARATOR.'caches_template'.DIRECTORY_SEPARATOR.'default'.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR.$template.EXT;
-			if(!file_exists($compiledtplfile) || (file_exists($tplfile) && filemtime($tplfile) > filemtime($compiledtplfile))) {
-				$template_cache->template_compile($module, $template, 'default');
-			} elseif (!file_exists($tplfile)) {
-				show_error($tplfile ,  500 ,  'Template does not exist(0)');
-			}
-		}
+		$tplfile= $module.DIRECTORY_SEPARATOR.$template;
 
-		if($return_full_path)
-			return $compiledtplfile;
-		else
-			return 'caches_template'.DIRECTORY_SEPARATOR.$style.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR.$template;
+		$CI->parser->parse($tplfile,$data);
 	}
 }
 

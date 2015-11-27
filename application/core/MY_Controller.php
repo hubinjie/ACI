@@ -29,8 +29,8 @@ class MY_Controller extends CI_Controller
 		$_pageseo = $this->config->item($this->router->class,'seo');
 		$_default_pageseo = $this->config->item('default','seo');
 		$this->page_data['title'] = isset($_pageseo['title'])?$_pageseo['title'] : $_default_pageseo['title'];
-		$this->page_data['keywords'] = isset($_pageseo['keywords'])?$_pageseo['keywords'] : $_default_pageseo['keywords'];
-		$this->page_data['decriptions'] = isset($_pageseo['decriptions'])?$_pageseo['decriptions'] : $_default_pageseo['decriptions'];
+		$this->page_data['keyword'] = isset($_pageseo['keywords'])?$_pageseo['keywords'] : $_default_pageseo['keywords'];
+		$this->page_data['description'] = isset($_pageseo['decriptions'])?$_pageseo['decriptions'] : $_default_pageseo['decriptions'];
 		unset($_pageseo);
 		unset($_default_pageseo);
 		//如果未安装，执行安装
@@ -75,17 +75,7 @@ class MY_Controller extends CI_Controller
 		if(!$_aci_config['works'])$this->showmessage('模块已经被卸载，请重新加载',base_url($this->page_data['folder_name'].'/moduleManage/index'));
 	}
 
-	/**
-	 * 模板
-	 *  ...
-	 * @param unknown_type $module
-	 * @param unknown_type $template
-	 * @param unknown_type $style
-	 */
-	protected function template($module = 'home', $template = 'index', $style = 'expatree')
-	{
-		return template($module , $template , $style ,false);
-	}
+
 
 	protected function showmessage($msg, $url_forward = '', $ms = 500, $dialog = '', $returnjs = '') {
 
@@ -118,33 +108,17 @@ class Front_Controller extends MY_Controller{
 	 */
 	protected function view($view_file,$page_data=false,$cache=false)
 	{
-
-		$view_file=$this->template($this->page_data['folder_name']."/".$this->page_data['controller_name'],$view_file);
-
+		$view_file= $this->page_data['folder_name'].DIRECTORY_SEPARATOR.$this->page_data['controller_name'].DIRECTORY_SEPARATOR.$view_file;
 		if(isset($this->current_member_info))
 		{
 			$page_data['current_member_info']=$this->current_member_info;
 			$page_data['current_member_id']=$this->current_member_id;//当前用户id
 		}
 
-		$this->load->view(reduce_double_slashes($view_file),$page_data);
+		$page_data = array_merge($page_data,$this->page_data);
+		$this->parser->parse($view_file, $page_data);
 	}
 
-	/**
-	 * 自动模板调用
-	 *
-	 * @param $module
-	 * @param $template
-	 * @param $istag
-	 * @return unknown_type
-	 */
-	protected function tpl($module_path,$view_file,$page_data=false,$cache=false)
-	{
-
-		$view_file=$this->template($module_path,$view_file);
-
-		$this->load->view($view_file,$page_data);
-	}
 
 	//重新加载所有缓存至文件
 	final public function reload_all_cache(){
@@ -474,7 +448,6 @@ class Admin_Controller extends Member_Controller{
 	protected function admin_tpl($view_file,$page_data=false,$cache=false)
 	{
 		$view_file= $this->page_data['folder_name'].DIRECTORY_SEPARATOR.$this->page_data['controller_name'].DIRECTORY_SEPARATOR.$view_file;
-
 
 		$this->load->view('adminpanel/header',$page_data);
 		$this->load->view(reduce_double_slashes($view_file),$page_data);

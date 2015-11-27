@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="description" content="<?php echo $description?>">
+    <meta name="keyword" content="<?php echo $keyword?>">
+    <meta name="author" content="autocodeigniter.com">
+    <link rel="icon" href="favicon.ico">
 
-    <title>ACI</title>
+    <title><?php echo $title?> - {date}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{BASE_CSS_PATH}steup.css" rel="stylesheet">
+    <link href="<?php echo BASE_CSS_PATH?>steup.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="http://v3.bootcss.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

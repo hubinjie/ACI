@@ -8,7 +8,7 @@ class Welcome extends Front_Controller {
 	
 	function index()
 	{
-		$this->view('index');
+		$this->view('index',array('date'=>date('Y-m-d H:i:s')));
 	}
 	
 	
