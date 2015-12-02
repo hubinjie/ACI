@@ -590,17 +590,24 @@
 				{
 					$n =0;
 					$text_arr = $row= NULL;
-					
+				
 					foreach($v as $vv)
 					{
-						if($n==0) $row['val'] = $vv;
-						else
-						{
+						if(count($v)>1){
+							if($n==0) $row['val'] = $vv;
+							else
+							{
+								$text_arr[]= $vv;
+							}
+						}
+						else{
+							
+							$row['val'] = $vv;
 							$text_arr[]= $vv;
 						}
+						
 						$n++;
 					}
-					
 					
 					$row['text']  = implode("-",$text_arr);
 					$new_datalist[] = $row;
