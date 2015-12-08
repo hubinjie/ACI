@@ -22,4 +22,14 @@ class Role_model extends Member_role_model {
         return $datalist;
     } 
 
+    /**
+     * 用户组下拉值
+     * @return array
+     */
+    function group_dropdown_value($id){
+        
+        $datainfo = $this->get_one(array('role_id'=>$id));
+        return isset($datainfo['role_name'])?$datainfo['role_name']:'-';
+    }
+
 }

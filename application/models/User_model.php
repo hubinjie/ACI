@@ -29,6 +29,16 @@ class User_model extends Member_model {
         return $datalist;
     }
 
+    /**
+     * 用户下拉值
+     * @return array
+     */
+    function user_dropdown_value($id){
+        
+        $datainfo = $this->get_one(array('user_id'=>$id));
+        return isset($datainfo['username'])?$datainfo['username']:'-';
+    }
+
     
 
 }
