@@ -18,8 +18,8 @@ class Role_model extends Member_role_model {
      */
     function group_window_datasource($where='',$limit = '', $order = '', $group = '', $key=''){
     	
-    	$datalist = $this->select($where,'user_id,username',$limit,$order,$group,$key);
+    	$datalist = $this->select($where,'role_id,role_name',$limit,$order,$group,$key);
         return $datalist;
-    }
+    } 
 
 }
