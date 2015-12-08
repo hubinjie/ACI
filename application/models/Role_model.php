@@ -12,4 +12,14 @@ class Role_model extends Member_role_model {
         return $datalist;
     }
 
+     /**
+     * 用户组下拉框
+     * @return array
+     */
+    function group_dropdown_datasource($where='',$limit = '', $order = '', $group = '', $key=''){
+        
+        $datalist = $this->select($where,'role_id,role_name',$limit,$order,$group,$key);
+        return $datalist;
+    }
+
 }

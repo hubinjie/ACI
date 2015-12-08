@@ -19,6 +19,16 @@ class User_model extends Member_model {
         return $datalist;
     }
 
+     /**
+     * 用户下拉框
+     * @return array
+     */
+    function user_dropdown_datasource($where='',$limit = '', $order = '', $group = '', $key=''){
+        
+        $datalist = $this->select($where,'user_id,username',$limit,$order,$group,$key);
+        return $datalist;
+    }
+
     
 
 }
