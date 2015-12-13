@@ -53,7 +53,7 @@ if ( ! function_exists('template'))
 		if(!isset($CI))$CI =& get_instance();
 		$tplfile= $module.DIRECTORY_SEPARATOR.$template;
 
-		$CI->parser->parse($tplfile,$data);
+		return $CI->parser->parse($tplfile,$data,true);
 	}
 }
 
