@@ -116,7 +116,21 @@ class Front_Controller extends MY_Controller{
 		}
 
 		$page_data = array_merge($page_data,$this->page_data);
+
 		$this->parser->parse($view_file, $page_data);
+	}
+
+
+	final private function _load_submenu($first_child_arr){
+		if($first_child_arr&&str_exists($first_child_arr['method'],'go_')&& $first_child_arr['is_parent']){
+
+			$arr_childid = explode(",",$first_child_arr['arr_childid']);
+			$first_sub_child_arr = $this->Module_menu_model->get_one("parent_id = ".$arr_childid[1]);
+			if($first_sub_child_arr) return $this->_load_submenu($first_sub_child_arr);
+
+		}
+	
+		return base_url($first_child_arr['folder'].'/'.$first_child_arr['controller'].'/'.$first_child_arr['method']) ;
 	}
 
 
@@ -127,25 +141,15 @@ class Front_Controller extends MY_Controller{
 		$datas = $this->Module_menu_model->select('','*',10000,'list_order ASC,menu_id asc');
 		$array = array();
 		foreach ($datas as $r) {
-			$r['url'] =base_url($r['folder'].'/'.$r['controller'].'/'.$r['method']) ;
-
+			//$r['url'] =base_url($r['folder'].'/'.$r['controller'].'/'.$r['method']) ;
+			$r['url'] = $this->_load_submenu($r);
 			$arr_parentid =  $r['arr_parentid'];
 			$arr_parentid = explode(",",$arr_parentid);
-
-			#缓存的时候自动将第一级要跳转的URL写入到缓存
-			if(count($arr_parentid)==1) {
-				#找到下面第一个子目录
-				$first_child_arr = $this->Module_menu_model->get_one("arr_parentid like '0,".$r['menu_id']."' and is_display = 1","*","list_order asc");
-
-				if($first_child_arr){
-					$first_child_child_arr = $this->Module_menu_model->get_one("arr_parentid like '0,".$r['menu_id'].",".$first_child_arr['menu_id']."' and is_display = 1","*","list_order asc");
-					if($first_child_child_arr){
-						$r['url'] =base_url($first_child_child_arr['folder'].'/'.$first_child_child_arr['controller'].'/'.$first_child_child_arr['method']) ;
-					}
-				}
-			}
+			
 			$menus[$r['menu_id']] = $r;
+			
 		}
+
 		setcache('cache_module_menu_all', $menus);
 
 
