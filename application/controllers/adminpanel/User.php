@@ -200,6 +200,7 @@ class User extends Admin_Controller {
 													'password'=>$password,
 													'group_id'=>$group_id,
 													'email'=>$email,
+													'mobile'=>$mobile,
 													'fullname'=>$fullname,
 													'is_lock'=>$is_lock,
 													'avatar'=>$thumb,
