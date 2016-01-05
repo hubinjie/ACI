@@ -57,7 +57,7 @@ return array(
 	'z'	=>	'application/x-compress',
 	'xhtml'	=>	'application/xhtml+xml',
 	'xht'	=>	'application/xhtml+xml',
-	'zip'	=>	array('application/x-zip', 'application/zip', 'application/x-zip-compressed', 'application/s-compressed', 'multipart/x-zip'),
+	'zip'	=>	array('application/octet-stream','application/x-zip', 'application/zip', 'application/x-zip-compressed', 'application/s-compressed', 'multipart/x-zip'),
 	'rar'	=>	array('application/x-rar', 'application/rar', 'application/x-rar-compressed'),
 	'mid'	=>	'audio/midi',
 	'midi'	=>	'audio/midi',
