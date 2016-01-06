@@ -3,8 +3,8 @@
 1. 找到 application/config.php 中
  	将 
    	$config['base_url'] = '';
-   	换成你的域名或者IP如 $config['base_url'] = 'http://www.xxx.com'; $config['base_url'] = 'http://locahost'; 
-   	$config['base_url'] = 'http://locahost/aci';  
+   	换成你的域名或者IP如 $config['base_url'] = 'http://www.xxx.com'; $config['base_url'] = 'http://localhost';
+   	$config['base_url'] = 'http://localhost/aci';
 
  2. 找到 application/database.php中
  	将
