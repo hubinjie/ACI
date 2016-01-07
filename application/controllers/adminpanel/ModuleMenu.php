@@ -169,6 +169,8 @@ class ModuleMenu extends Admin_Controller {
 			$parent_id = intval($this->input->post('parent_id'));
 			$menu_name = trim($this->input->post('menu_name',true));
 			$menu_url = trim($this->input->post('menu_url',true));
+            $controller_edit = trim($this->input->post('controller',true));
+            $method = trim($this->input->post('method',true));
 			$is_display = intval($this->input->post('is_display',true));
 			$css_icon = trim($this->input->post('css_icon',true));
 			$show_where = intval($this->input->post('show_where'));
@@ -179,10 +181,12 @@ class ModuleMenu extends Admin_Controller {
 			if($depth>1){
 				$menu_url_arr=explode(",",$menu_url);
 				list($folder,$controller,$methodName)  = $menu_url_arr;
+                $controller = empty($controller_edit)?$controller:$controller_edit;
+                $methodName = empty($method)?$methodName:$method;
 			}else{
 				$folder = $show_where==1?$this->page_data['folder_name']:"member";
-				$controller = "manage";
-				$methodName = "go_".$menu_id;
+                $controller = empty($controller_edit)?"manage":$controller_edit;
+                $methodName = empty($method)?"go_".$menu_id:$method;
 			}
 			
 			if($menu_name=="")exit(json_encode(array('status'=>false,'tips'=>' 菜单名称不能为空')));

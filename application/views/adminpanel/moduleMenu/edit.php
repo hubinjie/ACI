@@ -44,6 +44,22 @@
                     <p class="help-block"><a href="http://fontawesome.dashgame.com/" target="_blank">请输入fontawesome 图标CSS</a> </p>
                 </div>
             </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">控制器</label>
+
+                <div class="col-sm-5">
+                    <input type="text" name="controller" value="<?php echo $data_info['controller'] ?>"
+                           class="validate[required] form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">方法</label>
+
+                <div class="col-sm-5">
+                    <input type="text" name="method" value="<?php echo $data_info['method'] ?>"
+                           class="validate[required] form-control"/>
+                </div>
+            </div>
             <div class="form-group" id="show-url" style="display: none">
                 <label class="col-sm-2 control-label">URL</label>
 
