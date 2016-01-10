@@ -637,7 +637,43 @@
 		}
 	}
 	
-	
+
+	/**
+	 * @检测是否开始了mod_rewite
+	 * 
+	 * @author Pierre-Henry Soria <ph7software@gmail.com>
+	 * @copyright (c) 2013, Pierre-Henry Soria. All Rights Reserved.
+	 * @return boolean
+	 */
+	function isRewriteMod()
+	{
+	  if (function_exists('apache_get_modules'))
+	  {
+	    $aMods = apache_get_modules();
+	    $bIsRewrite = in_array('mod_rewrite', $aMods);
+	  }
+	  else
+	  {
+	    $bIsRewrite = (strtolower(getenv('HTTP_MOD_REWRITE')) == 'on');
+	  }
+	  return $bIsRewrite;
+	}
+
+	function curPageURL()
+	{
+	    $pageURL = 'http://';
+
+	    if ($_SERVER["SERVER_PORT"] != "80")
+	    {
+	        $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+	    }
+	    else
+	    {
+	        $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+	    }
+	    return $pageURL;
+	}
+		
 	
 	
 	
