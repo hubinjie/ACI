@@ -23,7 +23,7 @@
             <?php  if (version_compare(PHP_VERSION, '5.3.0') <= 0) :?>
             <p class="lead">很抱歉 ACI 要求最低PHP版本不能小于PHP 5.3</p>
             <?php else:?>
-              <?php if(!isRewriteMod()):?>
+              <?php if(!isRewriteMod()&&function_exists('apache_get_version')): ?>
                 <p class="lead">很抱歉您当前环境未开始 mod_rewrite </p>
               <?php elseif(site_url()!=curPageURL()):?>
                 <p class="lead"> 安装说中的第一条不正确 ， 请修改 application/config/config.php 中的 $config['base_url'] = '<?php echo curPageURL()?>'; </p>
