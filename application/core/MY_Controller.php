@@ -557,9 +557,6 @@ class API_Controller extends Front_Controller{
 			exit;
 		}
 
-
-		$headers = apache_request_headers();
-		
 		parent::__construct();
 		$this->load->library(array('encrypt'));
 		define("IN_API", TRUE);
@@ -569,48 +566,29 @@ class API_Controller extends Front_Controller{
 
 	function _check_token(){
 
-		$headers = apache_request_headers();
-		$rawpostdata = file_get_contents("php://input");
-		if(isset($headers['access_token'])){
+		$access_token = "";
+		$headers = array();
 
-			if($rawpostdata)
-				$_POST['token']=$headers['access_token'];
-			else
-				$_GET['token']=$headers['access_token'];
+		foreach ($_SERVER as $key => $value) {
+		    if ('HTTP_' == substr($key, 0, 5)) {
+		        $headers[strtoupper(substr($key, 5))] = $value;
+		    }
 		}
-		if(isset($_GET['token']))
-		{
 
-			$this->GET = $this->POST = $_GET;
+		if(isset($headers['ACCESS_TOKEN'])){
 
-			if($this->GET['token']==""){
-				exit(json_encode(array('status_id'=>-99991,'tips'=>' 登录失败，缺少token')));
-			}
-
-
-		}else{
-
-
-			if(!$rawpostdata)exit(json_encode(array('status_id'=>-99992,'tips'=>' 登录失败，缺少token')));
-
-
-			$post = json_decode($rawpostdata, true);
-			$this->POST  = $post['params'];
-
-			if(!isset($_POST['token'])&&!isset($this->POST['token'])){
-				exit(json_encode(array('status_id'=>-9999,'tips'=>' 登录失败，缺少token')));
-			}
-
-			if(isset($_POST['token'])){
-				$this->POST['token'] = $_POST['token'];
-			}
+			$access_token = trim($headers['ACCESS_TOKEN']);
 		}
-		$token = $this->POST['token'];
 
-		$token =  str_replace("^^","+",$token);
+		if($access_token=="")exit(json_encode(array('status_id'=>-99991,'tips'=>' 登录失败，缺少token')));
+	
+		$token =  str_replace("^^","+",$access_token);
 		$token =  str_replace("~~","#",$token);
+		//xfqJROfIE3lnauI1xvBuWFNcLpeDzMnWMVRvabsy8eBM++bQFUM9r+qLfZd9x0g9bsHW73eU+x7A70dqRmmL71hGTC\/yTCpHQk1prbQOg6sKZGwqMii24gukvxfrRQ4l
+		
 
 		$decode_token = $this->encrypt->decode($token);
+	
 
 		if($decode_token=="")exit(json_encode(array('status_id'=>-9998,'tips'=>' token 无效')));
 		$decode_token_arr = explode("_",$decode_token);
