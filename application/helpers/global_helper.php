@@ -614,7 +614,7 @@ if ( ! function_exists('thumb'))
 		function setcache($name,$data, $timesec=315576000) {
 			global $CI;
 			if(!isset($CI))$CI =& get_instance();
-			 $CI->cache->save($name, $data, $timesec);
+			 $CI->cache->file->save($name, $data, $timesec);
 		}
 	}
 	
