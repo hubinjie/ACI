@@ -605,7 +605,7 @@ if ( ! function_exists('thumb'))
 		{
 			global $CI;
 			if(!isset($CI))$CI =& get_instance();
-			return $CI->cache->get($cache_name);
+			return $CI->cache->file->get($cache_name);
 		}
 	}
 	

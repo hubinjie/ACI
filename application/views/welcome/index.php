@@ -27,6 +27,8 @@
                 <p class="lead">很抱歉您当前环境未开始 mod_rewrite </p>
               <?php elseif(site_url()!=curPageURL()):?>
                 <p class="lead"> 安装说中的第一条不正确 ， 请修改 application/config/config.php 中的 $config['base_url'] = '<?php echo curPageURL()?>'; </p>
+              <?php elseif($cache_chomd<755):?>
+                <p class="lead"> application/cache 文件夹 权限不够，要求权限>=755以上 </p>
               <?php else:?>
                 <p class="lead">恭喜您安装成功，默认管理帐号 test/test</p>
                 <p class="lead">
