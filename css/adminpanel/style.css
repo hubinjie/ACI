@@ -24,11 +24,7 @@ body {
   height: 55px;
 }
 
-.btn-primary{ background-color: #FF6600; border:1px solid #FF6600;}
-.btn-primary:hover{ background-color: #FF6600; border:1px solid #FF6600;}
-
-.btn-success{ background-color: #FF6600; border:1px solid #FF6600;}
-.btn-success:hover{ background-color: #FF6600; border:1px solid #FF6600;}
+.btn-primary{ background-color: #1ABC9C; border:1px solid #1ABC9C;}
 
 .navbar-icon-menu {
   text-align: center;
