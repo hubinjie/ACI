@@ -167,9 +167,19 @@ body {
   margin-bottom: 10px;
 }
 
+//第三级菜单选中样式
 .list-group .active,.list-group .active:hover {
   background-color: #1ABC9C;
   border: 1px solid #1ABC9C
+}
+
+//第二级菜单样式
+.list-group .disabled,.list-group .disabled:hover {
+
+  border-top: 2px solid #1ABC9C;
+  color: black;
+  font-family: 黑体;
+  font-size: 14px;
 }
 
 .white-bg {

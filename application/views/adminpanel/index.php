@@ -34,21 +34,23 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <?php if ($sub_menu_data) foreach ($sub_menu_data as $k => $v): ?>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item active"><?php echo $v['menu_name'] ?> </a>
-                            <?php
-                            $sub_array = $v['sub_array'];
-                            if ($sub_array)
-                                foreach ($sub_array as $key => $m) {
-                                    ?>
-                                    <a href="<?php echo $m['url'] ?>"
-                                       class="list-group-item"><?php echo $m['menu_name'] ?> <i class="fa fa-chevron-right"></i></a>
-                                    <?php
-                                }
-                            ?>
-                        </div>
-                    <?php endforeach; ?>
+                    <aside>
+                        <?php if ($sub_menu_data) foreach ($sub_menu_data as $k => $v): ?>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item disabled"><?php echo $v['menu_name'] ?> </a>
+                                <?php
+                                $sub_array = $v['sub_array'];
+                                if ($sub_array)
+                                    foreach ($sub_array as $key => $m) {
+                                        ?>
+                                        <a href="<?php echo $m['url'] ?>"
+                                           class="list-group-item <?php echo $third_menu_id == $m['menu_id']?' active':'' ?>"><?php echo $m['menu_name'] ?> <i class="fa fa-chevron-right"></i></a>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </aside>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2" style="padding:0px;padding-top: 80px; ">
                     <div class="text-right pull-right" style="padding-right: 10px;"> <i class="fa fa-user"></i> <?php echo $this->user_name?> [ <?php echo group_name($this->group_id)?>], <a href="<?php echo base_url('adminpanel/manage/logout')?>">注销</a></div>

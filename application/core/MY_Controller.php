@@ -500,6 +500,7 @@ class Admin_Controller extends Member_Controller{
 
 		$find_menu=false;
 		$menu_id = 0;
+		$third_menu_id = 0;//第三个菜单ID
 
 		if($this->current_role_priv_arr)
 		foreach($this->cache_module_menu_arr as $k=>$_value)
@@ -516,6 +517,7 @@ class Admin_Controller extends Member_Controller{
 					$arr_parentid = explode(",",$_value['arr_parentid']);
 					if(count($arr_parentid)>=2) {
 						$parent_id =$arr_parentid[1];
+						$third_menu_id =isset($arr_parentid[3])? $arr_parentid[3]:$menu_id;
 					}else{
 						$parent_id =$_value['menu_id'];
 					}
@@ -534,6 +536,7 @@ class Admin_Controller extends Member_Controller{
 
 		$page_data['menu_data'] = $sub_page_data['menu_data']= $menu_data;
 		$page_data['current_pos']=$this->current_pos($menu_id);
+		$page_data['third_menu_id']=$third_menu_id;
 		$page_data['sub_page']=$this->load->view(reduce_double_slashes($view_file),$sub_page_data,true);
 		$this->load->view('adminpanel/header',$page_data);
 		$this->load->view('adminpanel/index',$page_data);
