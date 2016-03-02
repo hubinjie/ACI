@@ -34,7 +34,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <aside>
+                     <aside>
                         <?php if ($sub_menu_data) foreach ($sub_menu_data as $k => $v): ?>
                             <div class="list-group">
                                 <a href="#" class="list-group-item disabled"><?php echo $v['menu_name'] ?> </a>
@@ -44,7 +44,7 @@
                                     foreach ($sub_array as $key => $m) {
                                         ?>
                                         <a href="<?php echo $m['url'] ?>"
-                                           class="list-group-item <?php echo $third_menu_id == $m['menu_id']?' active':'' ?>"><?php echo $m['menu_name'] ?> <i class="fa fa-chevron-right"></i></a>
+                                           class="list-group-item <?php echo $third_menu_id == $m['menu_id']?' current-active':'' ?>"><?php echo $m['menu_name'] ?> <i class="fa fa-chevron-right"></i></a>
                                         <?php
                                     }
                                 ?>

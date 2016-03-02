@@ -24,7 +24,11 @@ body {
   height: 55px;
 }
 
-.btn-primary{ background-color: #1ABC9C; border:1px solid #1ABC9C;}
+.btn-primary{ background-color: #FF6600; border:1px solid #FF6600;}
+.btn-primary:hover{ background-color: #FF6600; border:1px solid #FF6600;}
+
+.btn-success{ background-color: #FF6600; border:1px solid #FF6600;}
+.btn-success:hover{ background-color: #FF6600; border:1px solid #FF6600;}
 
 .navbar-icon-menu {
   text-align: center;
@@ -167,19 +171,17 @@ body {
   margin-bottom: 10px;
 }
 
-//第三级菜单选中样式
-.list-group .active,.list-group .active:hover {
-  background-color: #1ABC9C;
-  border: 1px solid #1ABC9C
-}
-
-//第二级菜单样式
 .list-group .disabled,.list-group .disabled:hover {
-
+  background-color: #F5F5F5;
+  border: 1px solid #E2E2E2;
   border-top: 2px solid #1ABC9C;
   color: black;
-  font-family: 黑体;
   font-size: 14px;
+}
+
+.list-group a.current-active {
+  background-color: #1ABC9C;
+  color: white;
 }
 
 .white-bg {
@@ -466,7 +468,11 @@ a.square:hover {
   color: white;
   background-image: url('../../images/sys_logo.gif');
   background-repeat: none;
-  padding-left: 70px;
+  padding-left: 75px;
+  font-family: "Arial","黑体";
+  font-size: 15px;
+  padding-top: 18px;
+  font-weight: bold;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -644,5 +650,18 @@ a.square:hover {
 .panel-body table{ margin-bottom: 0px}
 .panel-footer{ height: 50px;clear: both; }
 .panel-footer .pull-right .pagination{ margin: 0px;}
+.pagination .page-size{  padding: 3px 10px; color:#777777; }
+.pagination .page-size select{ font-size: 14px; border:1px solid #777777;}
 .no-result{ padding: 10px;}
 form .form-actions{background-color:#f5f7f7;margin:15px -15px -15px;padding:15px;-moz-border-radius-bottomleft:4px;-webkit-border-bottom-left-radius:4px;border-bottom-left-radius:4px;-moz-border-radius-bottomright:4px;-webkit-border-bottom-right-radius:4px;border-bottom-right-radius:4px}form .form-actions a.btn:hover{color:#28e1bd}
+
+.textAreaWithLines{font-family:"榛戜綋";border: 1px solid #ddd;}
+.textAreaWithLines textarea,.textAreaWithLines div{border: 0px;line-height: 120%;font-size: 14px;}
+.lineObj{color: #666;}
+#importText{width:4000px; }
+.import-text-wrap{width:1000px;height:300px;overflow-x:hidden}
+
+.item-order-info{ line-height: 20px; }
+.item-order-info div{ line-height: 25px;  height: 25px; padding-left: 15px;}
+
+.copyright{ z-index: 9999; position: relative;; clear: both; bottom:0px;text-align: center; height: 35px; line-height: 35px; width: 100%; background-color: #F5F5F5; border-top: 2px solid #cccccc;}
