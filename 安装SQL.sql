@@ -220,16 +220,13 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `t_sys_sessions`;
 
 
-CREATE TABLE `t_sys_sessions` (
-  `id` varchar(40) NOT NULL DEFAULT '0',
-  `ip_address` varchar(16) NOT NULL DEFAULT '0',
-  `user_agent` varchar(120) DEFAULT '',
-  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
-  `data` text NOT NULL,
-  `timestamp` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `ci_sessions_timestamp` (`timestamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `t_sys_sessions` (
+    `id` varchar(40) NOT NULL,
+    `ip_address` varchar(45) NOT NULL,
+    `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+    `data` blob NOT NULL,
+    KEY `ci_sessions_timestamp` (`timestamp`)
+);
 
 # Dump of table t_sys_times
 # ------------------------------------------------------------
